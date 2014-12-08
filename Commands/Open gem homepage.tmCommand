@@ -28,7 +28,7 @@ puts nil</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>$</string>
+	<string>$</string>
 	<key>name</key>
 	<string>Open gem homepage</string>
 	<key>outputCaret</key>

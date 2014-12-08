@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${TM_RAILS_TEMPLATE_START_RUBY_EXPR}javascript_include_tag "${1:application}"${TM_RAILS_TEMPLATE_END_RUBY_EXPR}</string>
+	<string>${TM_RAILS_TEMPLATE_START_RUBY_EXPR}stylesheet_link_tag "${1:application}", ${2:media: "${3:all}"} ${TM_RAILS_TEMPLATE_END_RUBY_EXPR}</string>
 	<key>name</key>
-	<string>javascript_include_tag</string>
+	<string>stylesheet_link_tag</string>
 	<key>scope</key>
 	<string>text.html.erb.rails, text.haml, text.slim</string>
 	<key>tabTrigger</key>
-	<string>jsit</string>
+	<string>sslt</string>
 	<key>uuid</key>
-	<string>E7447752-4EB2-4D52-95CD-670C552E799F</string>
+	<string>07B69BB0-0C43-4020-9A63-CF9C19FD1D69</string>
 </dict>
 </plist>
