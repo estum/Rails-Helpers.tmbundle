@@ -13,23 +13,23 @@ git clone https://github.com/estum/Rails-Helpers.tmbundle.git
 
 # List of features
 
-## <kbd>⇧F1</kbd> Open gem... command
+## `⇧F1` Open gem... command
 
 Homepage/source path.
 
-[Open gem in...](https://raw.github.com/estum/Rails-Helpers.tmbundle.git/master/Images/open_gem_in.png)
+![Open gem in...](https://raw.github.com/estum/Rails-Helpers.tmbundle.git/master/Images/open_gem_in.png)
 
-## <kbd>⌘⇧M</kbd> Open migration from dropdown list
+## `⌘⇧M` Open migration from dropdown list
 
-[Open migration from dropdown list](https://raw.github.com/estum/Rails-Helpers.tmbundle.git/master/Images/open_migration.png)
+![Open migration from dropdown list](https://raw.github.com/estum/Rails-Helpers.tmbundle.git/master/Images/open_migration.png)
 
-## <kbd>⌃⌘A</kdb> Toggle array syntax style
+## `⌃⌘A` Toggle array syntax style
 
-[Toggle array syntax style](https://raw.github.com/estum/Rails-Helpers.tmbundle.git/master/Images/toggle_array_syntax_style.png)
+![Toggle array syntax style](https://raw.github.com/estum/Rails-Helpers.tmbundle.git/master/Images/toggle_array_syntax_style.png)
 
-## <kbd>⌘⌥↑</kdb> Open coffee/js on current line
+## `⌘⌥↑` Open coffee/js on current line
 
-[Toggle array syntax style](https://raw.github.com/estum/Rails-Helpers.tmbundle.git/master/Images/open_coffee-js_on_current_line.png)
+![Toggle array syntax style](https://raw.github.com/estum/Rails-Helpers.tmbundle.git/master/Images/open_coffee-js_on_current_line.png)
 
 ## Other
 
