@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wU
+
+require File.join(ENV['TM_BUNDLE_SUPPORT'], 'create_files.rb')
+
+current_line   = ENV['TM_CURRENT_LINE']
+selection_text = ENV['TM_SELECTED_TEXT']
+current_word   = ENV['TM_CURRENT_WORD']
+
+filename = selection_text.nil? ? current_word : selection_text
+dir      = nil
+
+filename = filename.pluralize.parameterize
+
+CreateFiles.create_file("#{filename}_controller", :controllers, :dir =&gt; dir).open</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^@N</string>
+	<key>name</key>
+	<string>Create controller</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>uuid</key>
+	<string>552A0567-BA63-400E-A55C-381FFF218A6A</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

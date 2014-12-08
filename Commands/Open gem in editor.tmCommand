@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wU
+
+unless ENV['TM_FILENAME'] =~ /^(?:Gemfile.*|.*\.gemspec)$/
+  abort
+end
+
+require 'shellwords'
+project_path = Shellwords.shellescape(ENV['TM_PROJECT_DIRECTORY'])
+
+line = ENV['TM_CURRENT_LINE'].strip
+if /(?:gem|add\w*_dependency) +['"](?&lt;gem_name&gt;[\w-]+)['"]/i =~ line
+  spawn '/bin/bash', '-l', '-c', %{cd #{project_path}; mate \"$(bundle show #{gem_name})\" --no-wait}
+end
+
+exit</string>
+	<key>input</key>
+	<string>line</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>$</string>
+	<key>name</key>
+	<string>Open gem in editor</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>attr.rev-path.gemspec,attr.rev-path.Gemfile,attr.rev-path.lock.Gemfile</string>
+	<key>uuid</key>
+	<string>F16D4451-D239-4556-9355-14CF2D5E93FD</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

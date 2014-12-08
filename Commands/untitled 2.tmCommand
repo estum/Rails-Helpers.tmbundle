@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18
+
+require "#{ENV['TM_SUPPORT_PATH']}/lib/ui.rb"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/textmate.rb"
+
+REQUIRE_RE = /^(?:#=)?\s*(?:require|load)\s*(['"])?([^'"#]+?)(\1)?[ \t]*$/
+
+Dir.chdir(ENV['TM_DIRECTORY']) if ENV.has_key?('TM_DIRECTORY')
+
+requires = if ENV['TM_CURRENT_LINE'].to_s =~ REQUIRE_RE
+             $2
+           else
+             $stdin.read.scan(REQUIRE_RE).map { |_, path| path }[0]
+           end
+abort 'No includes found.' if requires.nil?
+
+candidates = Dir.glob(File.join(ENV['TM_PROJECT_DIRECTORY'], "**/assets/**", "#{requires}{*,/index.*}"))
+
+file = if candidates.size &gt; 1
+         choice = TextMate::UI.menu(candidates) or exit
+         candidates[choice]
+       else
+         candidates.pop
+       end
+
+if file
+  TextMate.go_to :file =&gt; file
+  exit
+else
+  puts "File not found: #{file}"
+end</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~@</string>
+	<key>name</key>
+	<string>Go to file on current line (assets)</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.coffee</string>
+	<key>uuid</key>
+	<string>492FA63A-4930-45AE-B685-5AA804F23DD6</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

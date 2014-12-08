@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wU
+
+unless ENV['TM_FILENAME'] =~ /^(?:Gemfile.*|.*\.gemspec)$/
+  abort
+end
+
+require 'shellwords'
+project_path = Shellwords.shellescape(ENV['TM_PROJECT_DIRECTORY'])
+
+line = ENV['TM_CURRENT_LINE'].strip
+if /(?:gem|add\w*_dependency) +['"](?&lt;gem_name&gt;[\w-]+)['"]/i =~ line
+  cmd = %{cd #{project_path}; cmd="gem spec #{gem_name} homepage --marshal"; $cmd 2&gt;/dev/null || bundle exec $cmd 2&gt;/dev/null}
+  homepage = IO.popen(['/bin/bash', '-l', '-c', cmd], &amp;:read)
+  exit if homepage.length.zero?
+  system 'open', Marshal.load(homepage) if homepage
+end
+
+puts nil</string>
+	<key>input</key>
+	<string>line</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>$</string>
+	<key>name</key>
+	<string>Open gem homepage</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>attr.rev-path.gemspec,attr.rev-path.Gemfile,attr.rev-path.lock.Gemfile</string>
+	<key>uuid</key>
+	<string>FF4CC9C1-E91B-485B-B0AF-C431802EB38F</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

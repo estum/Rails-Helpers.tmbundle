@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>delegate :${1:method}, to: :${2:object}${3:, prefix: ${4|true,"custom"|}}${5:, allow_nil: ${6|true,false|}}</string>
+	<key>name</key>
+	<string>delegate ... to:</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>deleg</string>
+	<key>uuid</key>
+	<string>8CE8903F-0657-4A2A-BC17-6D917C8A372F</string>
+</dict>
+</plist>

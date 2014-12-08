@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>content_tag ${1::${2|div,span,li,ul,button|}}, ${3:raw(${4:contents})}, ${5:class: ${6|%w(${7:block}),["${8:block}"]|}}</string>
+	<key>name</key>
+	<string>content_tag</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>tag</string>
+	<key>uuid</key>
+	<string>5BD42AEC-92E0-4586-937C-3C3F70F40C61</string>
+</dict>
+</plist>

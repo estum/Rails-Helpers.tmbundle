@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wU
+
+exp_ary = /^\[[^\[\]]+\]$/
+@symbol_pattern = /^:([a-z0-9_?!=]+)$/
+@string_pattern = /^([\"\'])(.*?)\1$/
+
+input_text = STDIN.read
+
+def all_items_matches?(items, pattern)
+  items.inject(true) { |m,v| m &amp;&amp; !!(v =~ pattern) }
+end
+
+def to_symbol_syntax_ary(ary)
+  mod_ary = ary.map {|v| v[@symbol_pattern, 1] }.join(' ')
+  "%i[#{mod_ary}]"
+end
+
+def to_string_syntax_ary(ary)
+  mod_ary = ary.map {|v| v[@string_pattern, 2] }.join(' ')
+  "%w[#{mod_ary}]"
+end
+
+if input_text =~ exp_ary
+  ary = input_text.scan(/[^\[\]\s,]+/)
+  
+  output  = if all_items_matches? ary, @symbol_pattern
+               to_symbol_syntax_ary(ary)
+             elsif all_items_matches? ary, @string_pattern
+               to_string_syntax_ary(ary)
+             else
+               input_text
+             end
+  print(output)
+else
+  output =  if input_text =~ %r{^%(w|i)\p{Ps}\s*(.*?)\s*?\p{Pe}$}i
+              is_string = $1.downcase == "w"
+              s = $2.split(/\s+/).map {|v| is_string ? "'#{v}'" : ":#{v}" }.join(", ")
+              "[#{s}]"
+            else
+              input_text
+            end
+  print(output)
+end
+
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^@a</string>
+	<key>name</key>
+	<string>Convert array</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>uuid</key>
+	<string>923DDB06-AE31-43F8-9CFA-D833CFDE07CF</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
