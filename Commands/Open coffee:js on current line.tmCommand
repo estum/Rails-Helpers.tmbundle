@@ -10,7 +10,7 @@
 require "#{ENV['TM_SUPPORT_PATH']}/lib/ui.rb"
 require "#{ENV['TM_SUPPORT_PATH']}/lib/textmate.rb"
 
-REQUIRE_RE = /^(?:#=)?\s*(?:require|load)\s*(['"])?([^'"#]+?)(\1)?[ \t]*$/
+REQUIRE_RE = /^(?:#=|\/\/=)?\s*(?:require|load)\s*(['"])?([^'"#]+?)(\1)?[ \t]*$/
 
 Dir.chdir(ENV['TM_DIRECTORY']) if ENV.has_key?('TM_DIRECTORY')
 
@@ -21,7 +21,10 @@ requires = if ENV['TM_CURRENT_LINE'].to_s =~ REQUIRE_RE
            end
 abort 'No includes found.' if requires.nil?
 
-candidates = Dir.glob(File.join(ENV['TM_PROJECT_DIRECTORY'], "**/assets/**", "#{requires}{*,/index.*}"))
+candidates = Dir.glob(File.join(ENV['TM_PROJECT_DIRECTORY'], "**/assets/**", "#{requires}{*,/index.*}")).map do |path|
+  path.sub(Regexp.new("^#{ENV['TM_PROJECT_DIRECTORY']}\/"), '')
+end
+
 
 file = if candidates.size &gt; 1
          choice = TextMate::UI.menu(candidates) or exit
@@ -42,8 +45,6 @@ end</string>
 	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>~@</string>
-	<key>name</key>
-	<string>Go to file on current line (assets)</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
@@ -51,10 +52,10 @@ end</string>
 	<key>outputLocation</key>
 	<string>toolTip</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.coffee,comment.line.double-slash.js</string>
+	<key>name</key>
+	<string>Open coffee/js on current line</string>
 	<key>uuid</key>
-	<string>492FA63A-4930-45AE-B685-5AA804F23DD6</string>
-	<key>version</key>
-	<integer>2</integer>
+	<string>F2895C20-0019-4043-BA29-115A32A3DAF6</string>
 </dict>
 </plist>

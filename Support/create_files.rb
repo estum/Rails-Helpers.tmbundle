@@ -1,5 +1,6 @@
+$:.push(File.join(ENV['TM_BUNDLE_SUPPORT'], "lib")) unless $:.include?(File.join(ENV['TM_BUNDLE_SUPPORT'], "lib"))
 require 'active_support/inflector'
-require File.join(ENV['TM_SUPPORT_PATH'], "require_support.rb")
+require File.join(ENV['TM_BUNDLE_SUPPORT'], "require_support.rb")
 
 shared_lib "escape"
 bundle_lib "core_ext/string"

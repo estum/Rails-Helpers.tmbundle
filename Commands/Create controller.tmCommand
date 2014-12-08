@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby -wU
+	<string>#!/usr/bin/env ruby
 
 require File.join(ENV['TM_BUNDLE_SUPPORT'], 'create_files.rb')
 

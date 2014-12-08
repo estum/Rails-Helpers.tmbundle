@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby -wKU
+	<string>#!/usr/bin/env ruby
 
 require File.join(ENV['TM_BUNDLE_SUPPORT'], 'create_files')
 
@@ -17,18 +17,19 @@ filename = selection_text.nil? ? current_word : selection_text
 partial  = false
 dir      = nil
 
-if !filename.nil? &amp;&amp; filename.start_with?('@')
+exit if filename.nil?
+
+if filename.start_with?('@')
   model = filename.gsub(/^@/, '')
-  dir   = "#{model.pluralize}"
-  filename = "#{model.singularize}"
+  dir   = model.pluralize
+  filename = model.singularize
 end
 
 if current_line =~ /render\s(\:?(partial|spacer_template)(\s=&gt;)?|@\w+)/
   partial = true
 end
 
-filename = filename.parameterize('_')
-
+filename = filename.dup.parameterize('_')
 filename = "_#{filename}" if partial &amp;&amp; !filename.start_with?('_')
 
 CreateFiles.create_file("#{filename}.html", :views, :dir =&gt; dir).open</string>
@@ -47,7 +48,7 @@ CreateFiles.create_file("#{filename}.html", :views, :dir =&gt; dir).open</string
 	<key>outputLocation</key>
 	<string>toolTip</string>
 	<key>uuid</key>
-	<string>84B9D92C-00D9-4378-8103-561E33B5F163</string>
+	<string>5ADF02AE-9724-4792-87A4-C1028E3F6F68</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>

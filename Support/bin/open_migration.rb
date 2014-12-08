@@ -1,4 +1,4 @@
-#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
+#!/usr/bin/env ruby18
 
 require 'time'
 require File.join(ENV['TM_SUPPORT_PATH'], 'lib/textmate')
@@ -25,6 +25,7 @@ module OpenMigration
     # puts choises
     choise = TextMate::UI.menu(choises)
     TextMate.go_to :file => choise['filename']
+  rescue
     nil
   end
 end

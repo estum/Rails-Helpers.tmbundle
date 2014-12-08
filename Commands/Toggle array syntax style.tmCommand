@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+EXP_ARY = /^\[[^\[\]]+\]$/
+@symbol_pattern = /^:([a-z0-9_?!=]+)$/
+@string_pattern = /^([\"\'])(.*?)\1$/
+
+def all_items_matches?(items, pattern)
+  items.inject(true) { |m,v| m &amp;&amp; !!(v =~ pattern) }
+end
+
+def to_symbol_syntax_ary(ary)
+  mod_ary = ary.map {|v| v[@symbol_pattern, 1] }.join(' ')
+  "%i[#{mod_ary}]"
+end
+
+def to_string_syntax_ary(ary)
+  mod_ary = ary.map {|v| v[@string_pattern, 2] }.join(' ')
+  "%w[#{mod_ary}]"
+end
+
+def ary_match(part)
+  if part =~ EXP_ARY
+    ary = part.scan(/[^\[\]\s,]+/)
+    if all_items_matches?(ary, @symbol_pattern)
+      output = to_symbol_syntax_ary(ary)
+    elsif all_items_matches?(ary, @string_pattern)
+      output = to_string_syntax_ary(ary)
+    end
+  else
+    if part =~ %r{^%(w|i)\p{Ps}\s*(.*?)\s*?\p{Pe}$}i
+      output = begin
+        is_string = $1.downcase == "w"
+        s = $2.split(/\s+/).map {|v| is_string ? "'#{v}'" : ":#{v}" }.join(", ")
+        "[#{s}]"
+      end
+    end
+  end
+end
+
+input_text = STDIN.read
+
+if ENV['TM_SELECTED_TEXT'].to_s.length &gt; 0
+  output = ary_match(input_text)
+  print(output) if output
+else
+  input_text.lines.each_with_index do |input_line, n|
+    line = ENV['TM_CURRENT_LINE']
+    output = if n+1 == ENV['TM_LINE_NUMBER'].to_i
+      cur = ENV['TM_LINE_INDEX'].to_i
+      matched_array = line[0, cur].scan(/((?:%w|%i)?\[[^\[]*?)$/).flatten[0].to_s + line[cur..-1].scan(/^([^\]]*?\])/).flatten[0].to_s
+      if (matched_array.length &gt; 0) &amp;&amp; (output = ary_match(matched_array))
+        input_line.sub(matched_array, output)
+      end
+    end
+    print(output || input_line)
+  end
+end
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^@a</string>
+	<key>name</key>
+	<string>Toggle array syntax style</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>uuid</key>
+	<string>E3D7BE9E-0C5A-42C8-8788-A962DAF39917</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
