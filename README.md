@@ -11,7 +11,7 @@ cd ~/Library/Application\ Support/Avian/Bundles/
 git clone https://github.com/estum/Rails-Helpers.tmbundle.git
 ```
 
-# List of features
+# Features
 
 ## `⇧F1` Open gem... command
 
@@ -31,6 +31,14 @@ Homepage/source path.
 
 ![Toggle array syntax style](http://estum.github.com/Rails-Helpers.tmbundle/images/open_coffee-js_on_current_line.png)
 
+## `ncla⇥`, `nmod⇥` Create namespaced class/module
+
+Tab-trigger snippets to create class/module with automatic namespace detection.
+
 ## Other
 
-See full list of commands and snippets in the bundle menu.
+See the full list of commands and snippets in the bundle menu.
+
+# TODO
+
+* Write nice `README.md`
