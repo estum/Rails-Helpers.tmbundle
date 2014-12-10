@@ -11,7 +11,7 @@ class NamespacedModule
       trails = ENV['TM_DIRECTORY'].split('/') - ENV['TM_PROJECT_DIRECTORY'].split('/')
       trails.reverse!
       trails.take_while.with_index do |basename, index|
-        !(trails[index.next].to_s =~ /^app|lib$/) || !(basename =~ /^concerns|controllers|helpers|models$/)
+        !(trails[index.next].to_s =~ /^app$/) && !(basename =~ /^concerns|controllers|helpers|models|lib$/)
       end
     end
   end
