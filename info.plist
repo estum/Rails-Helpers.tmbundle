@@ -2,6 +2,89 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>mainMenu</key>
+	<dict>
+    <key>items</key>
+    <array>      
+      <string>FC6EBCEC-0865-4035-9600-B22731620F90</string>
+      <string>0CC06ACE-9464-4A71-AB35-B487045B03FA</string>
+      <string>1290D4EC-F248-4D44-A441-6CCBE1CCE941</string>
+      <string>D0692884-AB92-4178-88C6-D81FECC31725</string>
+      <string>B5295FB2-6870-46B2-B590-73E1077A8AE8</string>
+      <string>------------------------------------</string>
+      <string>E3D7BE9E-0C5A-42C8-8788-A962DAF39917</string>
+      <string>43CCD142-31A9-4C0C-88C4-163145938818</string>
+    </array>
+		<key>submenus</key>
+		<dict>
+      <key>0CC06ACE-9464-4A71-AB35-B487045B03FA</key>
+      <dict>
+        <key>items</key>
+        <array>
+          <string>8987252A-26CA-4718-BCA9-BBCE8C342754</string>
+          <string>F2895C20-0019-4043-BA29-115A32A3DAF6</string>
+          <string>------------------------------------</string>
+          <string>91867361-8186-4C99-9EDF-973F1ADCFED1</string>
+          <string>FAABB59F-59E6-40B3-8FEE-34E3975814EA</string>          
+          <string>------------------------------------</string>
+          <string>552A0567-BA63-400E-A55C-381FFF218A6A</string>
+          <string>0044F736-F65F-414C-AB6E-80C8C0BA18EF</string>
+          <string>5ADF02AE-9724-4792-87A4-C1028E3F6F68</string>
+        </array>
+        <key>name</key>
+        <string>Rails</string>
+      </dict>
+      
+      <key>FC6EBCEC-0865-4035-9600-B22731620F90</key>
+      <dict>
+        <key>items</key>
+        <array>
+          <string>B48EFB52-450D-46EF-BDBE-D745B46108F2</string>
+          <string>F3CA6A00-1BFD-4840-8A1D-DD7A1634F3DF</string>
+        </array>
+        <key>name</key>
+        <string>Declare</string>
+      </dict>
+
+      <key>D0692884-AB92-4178-88C6-D81FECC31725</key>
+      <dict>
+        <key>items</key>
+        <array>
+          <string>5D06391E-9A60-4623-8A77-4E17D3796004</string>
+          <string>FF4CC9C1-E91B-485B-B0AF-C431802EB38F</string>
+          <string>F16D4451-D239-4556-9355-14CF2D5E93FD</string>
+        </array>
+        <key>name</key>
+        <string>Rubygems</string>
+      </dict>
+      
+      <key>1290D4EC-F248-4D44-A441-6CCBE1CCE941</key>
+      <dict>
+        <key>items</key>
+        <array>
+          <string>8AD5D2DE-FBE0-4957-90ED-507973338E55</string>
+          <string>028F6742-323B-4C49-916C-EFFE0B6EE4D6</string>
+        </array>
+        <key>name</key>
+        <string>Rake</string>
+      </dict>
+      
+			<key>B5295FB2-6870-46B2-B590-73E1077A8AE8</key>
+			<dict>
+				<key>items</key>
+				<array>
+          <string>8B91ABC5-E68C-46E5-97E2-091D45F375F1</string>
+          <string>93FC2763-4D69-4742-8B87-4BF407686333</string>
+          <string>4FFA1B7E-F82C-410E-B8F3-28A3DD1BC061</string>
+          <string>8CE8903F-0657-4A2A-BC17-6D917C8A372F</string>
+          <string>86C07AEC-CC84-45B8-918A-42B2232CBB96</string>
+          <string>07B69BB0-0C43-4020-9A63-CF9C19FD1D69</string>
+				</array>
+				<key>name</key>
+				<string>Other snippets</string>
+			</dict>      
+		</dict>
+	</dict>
 	<key>contactEmailRot13</key>
 	<string>nagba.rfghz@tznvy.pbz</string>
 	<key>contactName</key>

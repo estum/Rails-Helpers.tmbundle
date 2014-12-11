@@ -16,7 +16,7 @@ TextMate.go_to :file =&gt; File.join(ENV['TM_PROJECT_DIRECTORY'], 'Gemfile')</st
 	<key>keyEquivalent</key>
 	<string>^G</string>
 	<key>name</key>
-	<string>Open Gemfile</string>
+	<string>Open project's Gemfile</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>

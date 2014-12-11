@@ -2,22 +2,32 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 
 require "#{ENV['TM_BUNDLE_SUPPORT']}/namespaced_module.rb"
 print NamespacedModule.new(:class, 'ActiveRecord::Base').snippet</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>name</key>
-	<string>Create namespaced class</string>
+	<string>class ... (auto-namespace)</string>
 	<key>outputCaret</key>
 	<string>heuristic</string>
 	<key>outputFormat</key>
 	<string>snippet</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
 	<key>scope</key>
 	<string>source.ruby</string>
 	<key>tabTrigger</key>
 	<string>ncla</string>
 	<key>uuid</key>
 	<string>B48EFB52-450D-46EF-BDBE-D745B46108F2</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

@@ -15,7 +15,7 @@
   }$0
 end</string>
 	<key>name</key>
-	<string>Concerning</string>
+	<string>concerning</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>tabTrigger</key>
