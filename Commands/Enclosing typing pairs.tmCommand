@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18
+
+require "#{ENV['TM_SUPPORT_PATH']}/lib/escape"
+
+def take_left(substr, n)
+  part = ENV["TM_CURRENT_LINE"][0, n]
+  cl = substr.length
+  cl -= 1 while part.rindex(substr[0, cl]).nil?
+  n.next - cl
+end
+
+case str = STDIN.read
+when /\A"(.*)"\z/m, /\A'(.*)'\z/m
+  line = ENV['TM_LINE_NUMBER'].to_i
+  cur = ENV["TM_LINE_INDEX"].to_i
+  left = take_left($1, cur)
+  `"$TM_SUPPORT_PATH/bin/mate" -l #{line}:#{left-1}-#{line}:#{left+$1.length+1} #{e_sh ENV['TM_FILEPATH']}`
+end</string>
+	<key>input</key>
+	<string>scope</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~@b</string>
+	<key>name</key>
+	<string>Select enclosing typing pairs</string>
+	<key>outputCaret</key>
+	<string>interpolateByLine</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.ruby string.quoted.double, source.ruby string.quoted.single, source.ruby string</string>
+	<key>uuid</key>
+	<string>D7774073-EB52-4317-AA34-3C8D3F0AF662</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
