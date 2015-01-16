@@ -13,31 +13,38 @@ git clone https://github.com/estum/Rails-Helpers.tmbundle.git
 
 # Features
 
-## `⇧F1` Open gem... command
+## Open gem... command
+Key    | Feature
+:------|:-------
+ `⇧F1` | ![Open gem in...](http://estum.github.com/Rails-Helpers.tmbundle/images/open_gem_in.png)
 
-Homepage/source path.
+## Open migration from dropdown list
+Key    | Feature
+:------|:-------
+`⌘⇧M` | ![Open migration from dropdown list](http://estum.github.com/Rails-Helpers.tmbundle/images/open_migration.png)
 
-![Open gem in...](http://estum.github.com/Rails-Helpers.tmbundle/images/open_gem_in.png)
+## Toggle array syntax style
+Key    | Feature
+:------|:-------
+`⌃⌘A` | ![Toggle array syntax style](http://estum.github.com/Rails-Helpers.tmbundle/images/toggle_array_syntax_style.png)
 
-## `⌘⇧M` Open migration from dropdown list
+## Open coffee/js on current line
+Key    | Feature
+:------|:-------
+`⌘⌥↑` | ![Toggle array syntax style](http://estum.github.com/Rails-Helpers.tmbundle/images/open_coffee-js_on_current_line.png)
 
-![Open migration from dropdown list](http://estum.github.com/Rails-Helpers.tmbundle/images/open_migration.png)
-
-## `⌃⌘A` Toggle array syntax style
-
-![Toggle array syntax style](http://estum.github.com/Rails-Helpers.tmbundle/images/toggle_array_syntax_style.png)
-
-## `⌘⌥↑` Open coffee/js on current line
-
-![Toggle array syntax style](http://estum.github.com/Rails-Helpers.tmbundle/images/open_coffee-js_on_current_line.png)
-
-## `ncla⇥`, `nmod⇥` Create namespaced class/module
-
-Tab-trigger snippets to create class/module with automatic namespace detection.
+## Create namespaced class/module
+Tab-trigger | Feature
+:-----------|:--------
+`ncla⇥`, `nmod⇥` | Tab-trigger snippets to create class/module with automatic namespace detection.
 
 ## Other
-
-See the full list of commands and snippets in the bundle menu.
+Key/Tab  | Feature
+:--------|:---------------------------
+`⌘⇧D`   | Open require command (just opens required file from current line from your project, bundle or gemset)
+`fk⇥`    | Rails 4.2 `add_foreign_key` smart snippet
+`deleg⇥` | `delegate_to` smart snippet
+`ns⇥, `t⇥`  | Rake-specific snippets 
 
 # TODO
 
