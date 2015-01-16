@@ -7,9 +7,7 @@
 	<key>command</key>
 	<string>#!/usr/bin/env bash
 
-[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
-
-RUBYLIB="${TM_BUNDLE_SUPPORT}/lib:$RUBYLIB" "${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/bin/open_migration.rb"</string>
+"ruby18" -- "${TM_BUNDLE_SUPPORT}/bin/open_migration.rb"</string>
 	<key>input</key>
 	<string>none</string>
 	<key>inputFormat</key>

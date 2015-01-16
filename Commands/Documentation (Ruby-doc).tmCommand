@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
+	<string>#!/usr/bin/env ruby18
 query = ENV['TM_SELECTED_TEXT'] || ENV['TM_CURRENT_WORD']
 url = "http://ruby-doc.com/search.html?q=#{query}"
 puts "&lt;meta http-equiv='Refresh' content='0;URL=#{url}'&gt;"</string>

@@ -5,12 +5,12 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
+	<string>#!/usr/bin/env ruby18
 
 require "#{ENV['TM_BUNDLE_SUPPORT']}/namespaced_module.rb"
 print NamespacedModule.new(:module).snippet</string>
 	<key>input</key>
-	<string>selection</string>
+	<string>none</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>name</key>
@@ -20,7 +20,7 @@ print NamespacedModule.new(:module).snippet</string>
 	<key>outputFormat</key>
 	<string>snippet</string>
 	<key>outputLocation</key>
-	<string>replaceInput</string>
+	<string>atCaret</string>
 	<key>scope</key>
 	<string>source.ruby</string>
 	<key>tabTrigger</key>

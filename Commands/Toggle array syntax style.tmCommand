@@ -8,38 +8,36 @@
 	<string>#!/usr/bin/env ruby
 
 EXP_ARY = /^\[[^\[\]]+\]$/
-@symbol_pattern = /^:([a-z0-9_?!=]+)$/
-@string_pattern = /^([\"\'])(.*?)\1$/
+SYMBOL_PATTERN = /^:([\"\']?)(.*?)\1$/
+STRING_PATTERN = /^([\"\'])(.*?)\1$/
 
 def all_items_matches?(items, pattern)
   items.inject(true) { |m,v| m &amp;&amp; !!(v =~ pattern) }
 end
 
 def to_symbol_syntax_ary(ary)
-  mod_ary = ary.map {|v| v[@symbol_pattern, 1] }.join(' ')
+  mod_ary = ary.map {|v| v[SYMBOL_PATTERN, 2] }.join(' ')
   "%i[#{mod_ary}]"
 end
 
 def to_string_syntax_ary(ary)
-  mod_ary = ary.map {|v| v[@string_pattern, 2] }.join(' ')
+  mod_ary = ary.map {|v| v[STRING_PATTERN, 2] }.join(' ')
   "%w[#{mod_ary}]"
 end
 
 def ary_match(part)
   if part =~ EXP_ARY
     ary = part.scan(/[^\[\]\s,]+/)
-    if all_items_matches?(ary, @symbol_pattern)
-      output = to_symbol_syntax_ary(ary)
-    elsif all_items_matches?(ary, @string_pattern)
-      output = to_string_syntax_ary(ary)
+    if all_items_matches?(ary, SYMBOL_PATTERN)
+      to_symbol_syntax_ary(ary)
+    elsif all_items_matches?(ary, STRING_PATTERN)
+      to_string_syntax_ary(ary)
     end
   else
     if part =~ %r{^%(w|i)\p{Ps}\s*(.*?)\s*?\p{Pe}$}i
-      output = begin
-        is_string = $1.downcase == "w"
-        s = $2.split(/\s+/).map {|v| is_string ? "'#{v}'" : ":#{v}" }.join(", ")
-        "[#{s}]"
-      end
+      is_string = $1.downcase == "w"
+      s = $2.split(/\s+/).map {|v| is_string ? "'#{v}'" : ":#{v}" }.join(", ")
+      "[#{s}]"
     end
   end
 end
@@ -48,7 +46,11 @@ input_text = STDIN.read
 
 if ENV['TM_SELECTED_TEXT'].to_s.length &gt; 0
   output = ary_match(input_text)
-  print(output) if output
+  if output.to_s.length &gt; 0
+    print output
+  else
+    print input_text
+  end
 else
   input_text.lines.each_with_index do |input_line, n|
     line = ENV['TM_CURRENT_LINE']
@@ -61,8 +63,7 @@ else
     end
     print(output || input_line)
   end
-end
-</string>
+end</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>inputFormat</key>
