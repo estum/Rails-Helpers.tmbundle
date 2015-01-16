@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>add_foreign_key :${1:posts}, :${2:authors}${3:, name: "${4:fk_${1/\A([A-Za-z0-9]+_)*?([A-Za-z0-9]+[^s])(?:s?)\z/$2/}_${2/\A([A-Za-z0-9]+_)*?([A-Za-z0-9]+[^s])(?:s?)\z/$2/}}}"${5:, on_delete: :${6|cascade,nullify,restrict|}}${7:, column: "${8:${2/\A([A-Za-z0-9]+_)*?([A-Za-z0-9]+[^s])(?:s?)\z/$2/}}_id"}</string>
+	<key>name</key>
+	<string>add_foreign_key</string>
+	<key>scope</key>
+	<string>meta.rails.migration - meta.rails.migration.create_table - meta.rails.migration.change_table</string>
+	<key>tabTrigger</key>
+	<string>fk</string>
+	<key>uuid</key>
+	<string>C85BE9B8-1393-49E0-9229-89172D1CFEC5</string>
+</dict>
+</plist>
