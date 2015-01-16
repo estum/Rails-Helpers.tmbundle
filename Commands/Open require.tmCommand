@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18
+
+require File.join(ENV['TM_SUPPORT_PATH'], 'lib/textmate')
+require File.join(ENV['TM_SUPPORT_PATH'], 'lib/escape')
+require File.join(ENV['TM_SUPPORT_PATH'], 'lib/ui')
+
+REQUIRE_RE = /^\s*(?:require|load)\s*(['"])([^'"#]+?)(?:\.rb)?\1[ \t]*$/
+
+file = if ENV['TM_CURRENT_LINE'].to_s =~ REQUIRE_RE
+  $2
+end
+
+file_path = nil
+
+if file
+  cmd = %Q{cd #{e_sh ENV['TM_PROJECT_DIRECTORY']} &amp;&amp; bin/rails runner 'puts Gem.find_files(\\"#{e_sh file}\\")'}
+  file_path = ::IO.popen(%Q{/bin/bash -l -c "#{cmd}"}) do |io|
+    pathes = io.read.to_s.split("\n")
+    puts pathes.inspect
+    if pathes.size &gt; 1
+      choice = TextMate::UI.menu(pathes) or exit
+      pathes[choice]
+    else
+      pathes.pop
+    end
+  end
+end
+
+if file_path
+  TextMate.go_to :file =&gt; file_path
+  exit
+else
+  puts "File not found: #{file}"
+end</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@D</string>
+	<key>name</key>
+	<string>Open Require</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>uuid</key>
+	<string>0B6DBB2C-7800-4E21-B54B-215FDC19842A</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
