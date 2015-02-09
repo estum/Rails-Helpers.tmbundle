@@ -1,0 +1,77 @@
+---
+ActiveSupport:                                               #  A0EF85BD-F33C-47DC-83DE-D199AFE4D8D7
+  :items:
+    extend ActiveSupport::...:                               #  B69E0F63-EEC3-4DC3-83D0-C8767DD2200F
+    extend ActiveSupport::Autoload:                          #  48EB384C-AC70-40C5-9872-CF3DB94C8299
+    extend ActiveSupport::Concern:                           #  F5379644-2C71-4CDE-86ED-0DB77768D905
+    "-----------------------------------":                   #  "-----------------------------------"
+    include ...:                                             #  3EBD9BEA-A6C1-4A46-9EE9-21AD8946F794
+    include [concerns list]:                                 #  605E3576-E9A3-421C-8DBF-1A55E29F7D5B
+    concerning:                                              #  8B91ABC5-E68C-46E5-97E2-091D45F375F1
+    alias_method_chain:                                      #  0592CF0D-C68A-4996-B557-1BBDDEBCB632
+    'delegate ... to:':                                      #  8CE8903F-0657-4A2A-BC17-6D917C8A372F
+Declare:                                                     #  056CB604-5CDD-4E52-88BC-3B43C25809B2
+  :items:
+    class ... (auto-namespace):                              #  B48EFB52-450D-46EF-BDBE-D745B46108F2
+    module ... (auto-namespace):                             #  F3CA6A00-1BFD-4840-8A1D-DD7A1634F3DF
+    "-----------------------------------":                   #  "-----------------------------------"
+    Create controller:                                       #  552A0567-BA63-400E-A55C-381FFF218A6A
+    Create model:                                            #  0044F736-F65F-414C-AB6E-80C8C0BA18EF
+    Create view:                                             #  5ADF02AE-9724-4792-87A4-C1028E3F6F68
+    Update filename using target name:                       #  0E066382-85B3-41D7-8025-C261CB3EBA97
+Navigate:                                                    #  078BA9EC-5F0F-4D60-8595-68E80A9F973E
+  :items:
+    Open migration drop-down list:                           #  8987252A-26CA-4718-BCA9-BBCE8C342754
+    Open project's Gemfile:                                  #  5D06391E-9A60-4623-8A77-4E17D3796004
+    Open gem homepage:                                       #  FF4CC9C1-E91B-485B-B0AF-C431802EB38F
+    Open gem in editor:                                      #  F16D4451-D239-4556-9355-14CF2D5E93FD
+    Open Require:                                            #  0B6DBB2C-7800-4E21-B54B-215FDC19842A
+    Open coffee/js on current line:                          #  F2895C20-0019-4043-BA29-115A32A3DAF6
+    "-----------------------------------":                   #  "-----------------------------------"
+    Alternate File:                                          #  91867361-8186-4C99-9EDF-973F1ADCFED1
+    Alternate File (Down):                                   #  FAABB59F-59E6-40B3-8FEE-34E3975814EA
+Routes:                                                      #  62D4C6F7-6548-42BD-B5CB-1F3B5E3CB294
+  :items:
+    collection do ... end:                                   #  E7C20000-D173-4D11-9776-2F68AE49FEA4
+    concern :name do ... end (routes):                       #  3374A1C1-600C-4723-B6CE-5D1F603D990A
+    member do ... end:                                       #  FBA909B2-5AA0-46E7-8B6B-594DCB65CF31
+    shallow do ... end:                                      #  C9182D30-B0AB-4E23-9C5D-4802C0DB6121
+Migrations:                                                  #  E6BAC377-0CEC-4809-8EE5-11D7810BB9B0
+  :items:
+    add_foreign_key:                                         #  C85BE9B8-1393-49E0-9229-89172D1CFEC5
+    t.belongs_to:                                            #  B053B384-591E-4362-A78F-3D9D2540813C
+    t.json(b):                                               #  71B1E288-0DB5-4128-82C1-C99674113433
+    t.index:                                                 #  3AE21AD7-B112-4C28-9FC3-84ACF03291E6
+Other snippets:   #  B72A4E08-DED0-4EE6-A503-940724BC12B2
+  :items:
+    ActiveView:                                                  #  DDC27B16-9076-4E15-BBF0-F70EB18C65C0
+      :items:
+        content_for:                                             #  93FC2763-4D69-4742-8B87-4BF407686333
+        content_tag:                                             #  4FFA1B7E-F82C-410E-B8F3-28A3DD1BC061
+        javascript_include_tag:                                  #  86C07AEC-CC84-45B8-918A-42B2232CBB96
+        stylesheet_link_tag:                                     #  07B69BB0-0C43-4020-9A63-CF9C19FD1D69
+    Jbuilder:                                                    #  ED37D3D3-5EDB-4CD1-9073-A577239FBD09
+      :items:
+        'jbuilder: collection partial':                          #  210D3C62-4CFF-41E9-9238-8EFA5FE750C7
+        'jbuilder:: meta':                                       #  334511E8-C321-48A4-9FF3-13F276AAB6E9
+        'jbuilder: model + partial':                             #  A307B124-6A8B-4D48-8AFB-9CFC39635090
+        'jbuilder: model attrs':                                 #  50FA2525-4325-4253-BA26-E1E69CA148D8
+        def to_builder... end:                                   #  7402FF62-E071-4C8B-8133-F36CFF4047DB
+    Tasks:                                                       #  38B93960-C72C-4F15-9124-44F648A195C8
+      :items:
+        'Rake: namespace':                                       #  8AD5D2DE-FBE0-4957-90ED-507973338E55
+        'Rake: task':                                            #  028F6742-323B-4C49-916C-EFFE0B6EE4D6
+    Tests:                                                       #  CEE428FA-D116-4ED0-9087-D1F61868A341
+      :items:
+        RSpec.include_context:                                   #  719B6F2E-F8E6-4EC7-A236-7CC4D81BEDDF
+        RSpec.shared_context:                                    #  3621CC46-626E-40C1-B745-69C8CB746F0A
+    gemspec:                                                     #  E27DF288-21DE-4752-8177-2284EADBAD75
+Join line with semicolon:                                    #  34F903D9-65B5-49C9-85CC-768B622F0A25
+Squeeze line:                                                #  C40C6A1E-5E23-43DE-BA9A-F12A832946E0
+Toggle array syntax style:                                   #  E3D7BE9E-0C5A-42C8-8788-A962DAF39917
+Select enclosing typing pairs:                               #  D7774073-EB52-4317-AA34-3C8D3F0AF662
+"-----------------------------------":                   #  "-----------------------------------"
+Toggle ERb Tags:                                             #  1F66996F-7A93-450B-8CDE-A159454347BF
+Insert ERb’s <% .. %> or <%= .. %>:                          #  A5C26005-DE5B-4FEE-94C4-E00F08148C8A
+"-----------------------------------":                   #  "-----------------------------------"
+Documentation (Ruby-doc):                                    #  43CCD142-31A9-4C0C-88C4-163145938818

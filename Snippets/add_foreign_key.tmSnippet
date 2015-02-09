@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>add_foreign_key :${1:posts}, :${2:authors}${3:, name: "${4:fk_${1/\A([A-Za-z0-9]+_)*?([A-Za-z0-9]+[^s])(?:s?)\z/$2/}_${2/\A([A-Za-z0-9]+_)*?([A-Za-z0-9]+[^s])(?:s?)\z/$2/}}}"${5:, on_delete: :${6|cascade,nullify,restrict|}}${7:, column: "${8:${2/\A([A-Za-z0-9]+_)*?([A-Za-z0-9]+[^s])(?:s?)\z/$2/}}_id"}</string>
+	<string>add_foreign_key :${1:posts}, :${2:authors}${3:, column: :${4:${2/\A([A-Za-z0-9]+_)*?([A-Za-z0-9]+[^s])(?:s?)\z/$2/}}_id}${5:, name: "${6:fk_${1/\A([A-Za-z0-9]+_)*?([A-Za-z0-9]+[^s])(?:s?)\z/$2/}_${2/\A([A-Za-z0-9]+_)*?([A-Za-z0-9]+[^s])(?:s?)\z/$2/}}"}${7:, on_delete: :${8|cascade,nullify,restrict|}}</string>
 	<key>name</key>
 	<string>add_foreign_key</string>
 	<key>scope</key>

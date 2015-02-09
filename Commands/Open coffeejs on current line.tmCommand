@@ -43,8 +43,12 @@ end</string>
 	<string>selection</string>
 	<key>inputFormat</key>
 	<string>text</string>
+	<key>isDisabled</key>
+	<true/>
 	<key>keyEquivalent</key>
 	<string>~@</string>
+	<key>name</key>
+	<string>Open coffee/js on current line</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
@@ -53,9 +57,9 @@ end</string>
 	<string>toolTip</string>
 	<key>scope</key>
 	<string>source.coffee,comment.line.double-slash.js</string>
-	<key>name</key>
-	<string>Open coffee/js on current line</string>
 	<key>uuid</key>
 	<string>F2895C20-0019-4043-BA29-115A32A3DAF6</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

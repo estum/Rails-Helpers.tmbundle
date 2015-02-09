@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+# p STDIN.read
+
+STDOUT.puts STDIN.read.gsub(/(^\s*)(?=[^\s])|(\s{2,})/, 1 =&gt; '\1', 3 =&gt; 3)
+      # 1   2  3</string>
+	<key>input</key>
+	<string>line</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~@z</string>
+	<key>name</key>
+	<string>Squeeze line</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>uuid</key>
+	<string>C40C6A1E-5E23-43DE-BA9A-F12A832946E0</string>
+</dict>
+</plist>

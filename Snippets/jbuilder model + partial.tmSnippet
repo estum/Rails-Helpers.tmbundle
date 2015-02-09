@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>json.$1 do
+  json.partial! ${4:'$1s/$1'}, ${5:$1}: ${2|@,${3:post}.|}${1:comment}${7:
+  }
+end
+$0</string>
+	<key>name</key>
+	<string>jbuilder: model + partial</string>
+	<key>scope</key>
+	<string>attr.rev-path.jbuilder.json</string>
+	<key>tabTrigger</key>
+	<string>j.</string>
+	<key>uuid</key>
+	<string>A307B124-6A8B-4D48-8AFB-9CFC39635090</string>
+</dict>
+</plist>

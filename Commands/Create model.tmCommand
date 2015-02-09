@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby18
+	<string>#!/usr/bin/env ruby
 
 require File.join(ENV['TM_BUNDLE_SUPPORT'], 'create_files.rb')
 
@@ -16,7 +16,7 @@ current_word   = ENV['TM_CURRENT_WORD']
 filename = selection_text.nil? ? current_word : selection_text
 dir      = nil
 
-filename = filename.singularize.parameterize
+filename = filename.underscore
 
 CreateFiles.create_file(filename, :models, :dir =&gt; dir).open</string>
 	<key>input</key>

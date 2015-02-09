@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>json.meta do
+  json.$1s_count ${2|@,${3:author.}|}${1:post}s.count${4:
+  ${5:json.partial! "api/v1/meta"}}
+end</string>
+	<key>name</key>
+	<string>jbuilder:: meta</string>
+	<key>scope</key>
+	<string>attr.rev-path.jbuilder.json</string>
+	<key>tabTrigger</key>
+	<string>j.</string>
+	<key>uuid</key>
+	<string>334511E8-C321-48A4-9FF3-13F276AAB6E9</string>
+</dict>
+</plist>

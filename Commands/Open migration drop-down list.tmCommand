@@ -15,7 +15,7 @@
 	<key>keyEquivalent</key>
 	<string>@M</string>
 	<key>name</key>
-	<string>Open migration</string>
+	<string>Open migration drop-down list</string>
 	<key>outputCaret</key>
 	<string>selectOutput</string>
 	<key>outputFormat</key>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string># coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'plutil/version'
+
+Gem::Specification.new do |spec|
+  spec.name          = "${1:${TM_FILENAME/(?:\A|_)([A-Za-z0-9]+)(?:\.gemspec)?/(?2::\l$1)/g}}"
+  spec.version       = ${2:${1/()}}::VERSION
+  spec.authors       = ["${TM_AUTHOR:-${TM_FULLNAME}}"]
+  spec.email         = ["anton.estum@gmail.com"]
+  spec.summary       = %q{TODO: Write a short summary. Required.}
+  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.homepage      = "http://${3:github.com/spec/$1}"
+  spec.license       = "${4|MIT|}"
+
+  spec.files         = ${5|`git ls-files -z`.split("\x0")|Dir['lib/**/*.rb']}
+  spec.executables   = ${6|spec.files.grep(%r\{^bin/\}) \{ |f| File.basename(f) \}|Dir['bin/*']}
+  spec.test_files    = ${7|spec.files.grep(%r\{^(test\|spec\|features)/\}|Dir['{test,spec,features}/**/*']|)
+  spec.require_paths = ["lib"]
+  ${8:
+  spec.add_development_dependency "bundler", "~&gt; 1.7"}${9:
+  spec.add_development_dependency "rake", "~&gt; 10.0"}${10:
+  spec.add_development_dependency "rspec"}
+end
+</string>
+	<key>name</key>
+	<string>gemspec</string>
+	<key>scope</key>
+	<string>attr.rev-path.gemspec</string>
+	<key>tabTrigger</key>
+	<string>Gem</string>
+	<key>uuid</key>
+	<string>E27DF288-21DE-4752-8177-2284EADBAD75</string>
+</dict>
+</plist>

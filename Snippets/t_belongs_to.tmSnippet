@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>t.belongs_to :${1:taggable}${2:, polymorphic: ${3:{ default: "${4:Photo}" \}}}${5:, null: false }${6:, index: true }
+t.$0</string>
+	<key>name</key>
+	<string>t.belongs_to</string>
+	<key>scope</key>
+	<string>meta.rails.migration.create_table, meta.rails.migration.change_table</string>
+	<key>tabTrigger</key>
+	<string>t.</string>
+	<key>uuid</key>
+	<string>B053B384-591E-4362-A78F-3D9D2540813C</string>
+</dict>
+</plist>

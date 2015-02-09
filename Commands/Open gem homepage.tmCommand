@@ -15,11 +15,13 @@ require 'shellwords'
 project_path = Shellwords.shellescape(ENV['TM_PROJECT_DIRECTORY'])
 
 line = ENV['TM_CURRENT_LINE'].strip
-if /(?:gem|add\w*_dependency) +['"](?&lt;gem_name&gt;[\w-]+)['"]/i =~ line
-  cmd = %{cd #{project_path}; cmd="gem spec #{gem_name} homepage --marshal"; $cmd 2&gt;/dev/null || bundle exec $cmd 2&gt;/dev/null}
-  homepage = IO.popen(['/bin/bash', '-l', '-c', cmd], &amp;:read)
-  exit if homepage.length.zero?
+if /(?:gem|add\w*_dependency)\s+(?&lt;q&gt;['"]{1})(?&lt;gem_name&gt;.+?)\k&lt;q&gt;/i =~ line
+  cmd = %{cd #{project_path}; cmd="gem spec #{gem_name} homepage --marshal 2&gt;/dev/null"; eval $cmd || bundle exec $cmd}
+  homepage = IO.popen(cmd, &amp;:read)
+  fail! "Cant get homepage: #{homepage.inspect}" if homepage.nil? || homepage.length.zero?
   system 'open', Marshal.load(homepage) if homepage
+else
+  fail! "Cant get gem name: #{line.inspect}"
 end
 
 puts nil</string>

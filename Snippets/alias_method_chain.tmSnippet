@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>alias_method_chain :${1:target}, :${2:feature}${3:
+
+def ${1/\A([A-Za-z0-9]+)(?:\?|\z)/$1/}_with_$2${1/\A([A-Za-z0-9]+)(\?|\z)/$2/}
+  ${1/\A([A-Za-z0-9]+)(?:\?|\z)/$1/}_without_$2${1/\A([A-Za-z0-9]+)(\?|\z)/$2/}
+end}$0</string>
+	<key>name</key>
+	<string>alias_method_chain</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>amc</string>
+	<key>uuid</key>
+	<string>0592CF0D-C68A-4996-B557-1BBDDEBCB632</string>
+</dict>
+</plist>

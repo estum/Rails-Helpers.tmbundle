@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>extend ${1:ActiveSupport::${2:Autoload}}${3:
+
+autoload :${4:Model}}${5:
+
+eager_autoload do
+  autoload :${6:Cache}
+end}</string>
+	<key>name</key>
+	<string>extend ActiveSupport::Autoload</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>tabTrigger</key>
+	<string>ext</string>
+	<key>uuid</key>
+	<string>48EB384C-AC70-40C5-9872-CF3DB94C8299</string>
+</dict>
+</plist>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>def to_builder
+  Jbuilder.new do |${1:${TM_FILENAME/(?:\\A|_)([A-Za-z0-9]+)(?:\\.rb)?/(?2::$1)/g}}|
+    ${2:$1.(self, :${3:name})}
+  end
+end$0</string>
+	<key>name</key>
+	<string>def to_builder... end</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>deftb</string>
+	<key>uuid</key>
+	<string>7402FF62-E071-4C8B-8133-F36CFF4047DB</string>
+</dict>
+</plist>

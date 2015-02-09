@@ -41,7 +41,7 @@ module CreateFiles
     @dir                 = @argv[:dir].nil? ? set_path : [@pathes[@type], @argv[:dir]].join('/')
     @abs_dir             = File.join(@current_project_dir, @dir)
     
-    Dir.mkdir(@abs_dir) if !Dir.exists?(@abs_dir)
+    Dir.mkpath(@abs_dir) if !Dir.exists?(@abs_dir)
     
     @fullpath = File.join(@abs_dir, "#{@filename}#{@extname}")
     

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>t.index ${2::${1:user_id}}${3:, name: "${4:index_name}"}${5:, unique: true}${6:, using: '${7:gin}'}
+t.$0</string>
+	<key>name</key>
+	<string>t.index</string>
+	<key>scope</key>
+	<string>meta.rails.migration.create_table, meta.rails.migration.change_table</string>
+	<key>tabTrigger</key>
+	<string>t.</string>
+	<key>uuid</key>
+	<string>3AE21AD7-B112-4C28-9FC3-84ACF03291E6</string>
+</dict>
+</plist>

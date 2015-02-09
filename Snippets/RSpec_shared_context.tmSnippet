@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>RSpec.shared_context "${1:thing}"${2:, $3} do
+  ${4:before :${5|each,all|} do
+    @${6:$1} = ${7:${8:create}(:${9:$6})}
+  end}
+end
+$0</string>
+	<key>name</key>
+	<string>RSpec.shared_context</string>
+	<key>scope</key>
+	<string>source.ruby.rspec</string>
+	<key>tabTrigger</key>
+	<string>spec</string>
+	<key>uuid</key>
+	<string>3621CC46-626E-40C1-B745-69C8CB746F0A</string>
+</dict>
+</plist>

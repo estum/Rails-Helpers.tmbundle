@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>t.json${1:b} :${2:data}${3:, default: {\}}${4:, null: false}${5:, index: { using: "${6:gin}" \}}
+t.$0</string>
+	<key>name</key>
+	<string>t.json(b)</string>
+	<key>scope</key>
+	<string>meta.rails.migration.create_table, meta.rails.migration.change_table</string>
+	<key>tabTrigger</key>
+	<string>t.</string>
+	<key>uuid</key>
+	<string>71B1E288-0DB5-4128-82C1-C99674113433</string>
+</dict>
+</plist>
