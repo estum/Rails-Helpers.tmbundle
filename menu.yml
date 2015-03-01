@@ -1,77 +1,103 @@
 ---
 ActiveSupport:                                               #  A0EF85BD-F33C-47DC-83DE-D199AFE4D8D7
   :items:
-    extend ActiveSupport::...:                               #  B69E0F63-EEC3-4DC3-83D0-C8767DD2200F
-    extend ActiveSupport::Autoload:                          #  48EB384C-AC70-40C5-9872-CF3DB94C8299
-    extend ActiveSupport::Concern:                           #  F5379644-2C71-4CDE-86ED-0DB77768D905
-    "-----------------------------------":                   #  "-----------------------------------"
-    include ...:                                             #  3EBD9BEA-A6C1-4A46-9EE9-21AD8946F794
-    include [concerns list]:                                 #  605E3576-E9A3-421C-8DBF-1A55E29F7D5B
-    concerning:                                              #  8B91ABC5-E68C-46E5-97E2-091D45F375F1
+    "extend ActiveSupport::...":                               #  B69E0F63-EEC3-4DC3-83D0-C8767DD2200F
+    "extend ActiveSupport::Autoload":                          #  48EB384C-AC70-40C5-9872-CF3DB94C8299
+    "extend ActiveSupport::Concern":                           #  F5379644-2C71-4CDE-86ED-0DB77768D905
+    "-----------------------------------":                   #  "------------------------------------"
     alias_method_chain:                                      #  0592CF0D-C68A-4996-B557-1BBDDEBCB632
+    autoload:                                                #  75093D33-8407-4890-87B6-6CD3243BC1EF
+    before_action:                                               #  5389E297-F6DB-4984-A119-69089049C563
+    concerning:                                              #  8B91ABC5-E68C-46E5-97E2-091D45F375F1
     'delegate ... to:':                                      #  8CE8903F-0657-4A2A-BC17-6D917C8A372F
+    include ...:                                             #  3EBD9BEA-A6C1-4A46-9EE9-21AD8946F794
+    "include [concerns list]":                                 #  605E3576-E9A3-421C-8DBF-1A55E29F7D5B
+    "-----------------------------------":                    #  "------------------------------------"
+    params.require(..).permit(..):                           #  21FCF4A3-1AC6-48F3-AAD0-E05D677839F3
 Declare:                                                     #  056CB604-5CDD-4E52-88BC-3B43C25809B2
   :items:
     class ... (auto-namespace):                              #  B48EFB52-450D-46EF-BDBE-D745B46108F2
     module ... (auto-namespace):                             #  F3CA6A00-1BFD-4840-8A1D-DD7A1634F3DF
-    "-----------------------------------":                   #  "-----------------------------------"
+    "-----------------------------------":                   #  "------------------------------------"
     Create controller:                                       #  552A0567-BA63-400E-A55C-381FFF218A6A
     Create model:                                            #  0044F736-F65F-414C-AB6E-80C8C0BA18EF
     Create view:                                             #  5ADF02AE-9724-4792-87A4-C1028E3F6F68
+    "-----------------------------------":                   #  "------------------------------------"
     Update filename using target name:                       #  0E066382-85B3-41D7-8025-C261CB3EBA97
-Navigate:                                                    #  078BA9EC-5F0F-4D60-8595-68E80A9F973E
+    Create in models/concerns:                               #  37F51986-E207-410F-B08D-C42965B7BBDB
+    "Create lib/(:under_cursor).rb":                           #  04007631-46EF-47E0-A857-DD8C48C337C8
+Other snippets:                                              #  B72A4E08-DED0-4EE6-A503-940724BC12B2
   :items:
-    Open migration drop-down list:                           #  8987252A-26CA-4718-BCA9-BBCE8C342754
-    Open project's Gemfile:                                  #  5D06391E-9A60-4623-8A77-4E17D3796004
-    Open gem homepage:                                       #  FF4CC9C1-E91B-485B-B0AF-C431802EB38F
-    Open gem in editor:                                      #  F16D4451-D239-4556-9355-14CF2D5E93FD
-    Open Require:                                            #  0B6DBB2C-7800-4E21-B54B-215FDC19842A
-    Open coffee/js on current line:                          #  F2895C20-0019-4043-BA29-115A32A3DAF6
-    "-----------------------------------":                   #  "-----------------------------------"
-    Alternate File:                                          #  91867361-8186-4C99-9EDF-973F1ADCFED1
-    Alternate File (Down):                                   #  FAABB59F-59E6-40B3-8FEE-34E3975814EA
-Routes:                                                      #  62D4C6F7-6548-42BD-B5CB-1F3B5E3CB294
+    Standart library:                                            #  46A72E8A-251E-40D6-8ED8-1A1FF421F503
+      :items:
+        alias ...:                                               #  535FB74E-2251-41D4-98A8-89CF67AE376E
+        gemspec:                                                 #  E27DF288-21DE-4752-8177-2284EADBAD75
+        private/protected:                                       #  E11164D8-52CF-407B-A0F7-B19C878B867B
+    Metaprogramming:                                         #  9AD5FDBF-3987-4ADD-BA4B-EE828E9DF339
+      :items:
+        "class_eval <<-RUBY":                                     #  3FCAEDDF-81A6-43A4-8B7E-8F0C23D35618
+        respond_to_missing?:                                     #  4ECEC5E8-1075-40B7-BE0F-2BB377DC2BB2
+    Jbuilder:                                                #  ED37D3D3-5EDB-4CD1-9073-A577239FBD09
+      :items:
+        def to_builder... end:                               #  7402FF62-E071-4C8B-8133-F36CFF4047DB
+        'jbuilder: collection partial':                      #  210D3C62-4CFF-41E9-9238-8EFA5FE750C7
+        'jbuilder:: meta':                                   #  334511E8-C321-48A4-9FF3-13F276AAB6E9
+        'jbuilder: model + partial':                         #  A307B124-6A8B-4D48-8AFB-9CFC39635090
+        'jbuilder: model attrs':                             #  50FA2525-4325-4253-BA26-E1E69CA148D8
+    Tasks:                                                   #  38B93960-C72C-4F15-9124-44F648A195C8
+      :items:
+        "cap deploy":                                                  #  9549E2C9-581D-4995-901D-E99D2AC1C1E2
+        "cap deploy:migrations":                                       #  89B18124-FE77-4B91-9AEF-967A30BB8C75
+        'Rake: namespace':                                   #  8AD5D2DE-FBE0-4957-90ED-507973338E55
+        'Rake: task':                                        #  028F6742-323B-4C49-916C-EFFE0B6EE4D6
+RSpec:                                                       #  CEE428FA-D116-4ED0-9087-D1F61868A341
   :items:
-    collection do ... end:                                   #  E7C20000-D173-4D11-9776-2F68AE49FEA4
-    concern :name do ... end (routes):                       #  3374A1C1-600C-4723-B6CE-5D1F603D990A
-    member do ... end:                                       #  FBA909B2-5AA0-46E7-8B6B-594DCB65CF31
-    shallow do ... end:                                      #  C9182D30-B0AB-4E23-9C5D-4802C0DB6121
+    RSpec.include_context:                                   #  719B6F2E-F8E6-4EC7-A236-7CC4D81BEDDF
+    RSpec.shared_context:                                    #  3621CC46-626E-40C1-B745-69C8CB746F0A
+    "-----------------------------------":                   #  "------------------------------------"
+    Expectations:                                            #  3F94441A-03CF-4713-934F-521C056F46F9
+      :items:
+        expect(...).to ...:                                      #  F9807E48-739F-4B81-B883-AA5865B6DFAC
+        "-----------------------------------":                   #  "------------------------------------"
+        ".to be ... expected":                                   #  C03CBCD5-9517-4112-A63E-E1A70D08FB7F
+        ".to be_...":                                            #  22278486-A8A4-46CE-9FEF-81C1B0063131
+        ".to be_between ...":                                    #  D9B58C84-4CDA-4EA7-80CB-9583DD9A24EE
+        ".to be_within(..).of expected":                         #  525B250B-BF43-45C4-84AF-37E79D465C18
+        ".to be_{instance,kind}_of ExpectedClass":               #  7995DCFB-45AB-4B05-AF88-B2A01A6ABFAD
+        ".to match":                                             #  A01FF4B9-483C-4179-9908-22397D21DB5E
+        ".to raise_error":                                       #  6C909EB6-1F0E-496B-A110-883152B1EE2E
+        ".to respond_to :expected":                              #  57B183C4-D3A9-46E1-93C7-0B1AA8D4A227
+        ".to throw_symbol":                                      #  A27C3D1D-C63D-47A3-BBA1-8606C487D0B9
+        ".to {eq,eql,equal} expected":                           #  E04800C7-6B16-4558-BE34-121F69360137
+        '.to {start,end}_with "expected"':                         #  444605C3-2A2D-46F0-B14F-B532C62E33BE
 Migrations:                                                  #  E6BAC377-0CEC-4809-8EE5-11D7810BB9B0
   :items:
+    Open migration drop-down list:                           #  8987252A-26CA-4718-BCA9-BBCE8C342754
+    "-----------------------------------":                   #  "------------------------------------"
     add_foreign_key:                                         #  C85BE9B8-1393-49E0-9229-89172D1CFEC5
     t.belongs_to:                                            #  B053B384-591E-4362-A78F-3D9D2540813C
-    t.json(b):                                               #  71B1E288-0DB5-4128-82C1-C99674113433
     t.index:                                                 #  3AE21AD7-B112-4C28-9FC3-84ACF03291E6
-Other snippets:   #  B72A4E08-DED0-4EE6-A503-940724BC12B2
+    t.json(b):                                               #  71B1E288-0DB5-4128-82C1-C99674113433
+Navigate:                                                    #  078BA9EC-5F0F-4D60-8595-68E80A9F973E
   :items:
-    ActiveView:                                                  #  DDC27B16-9076-4E15-BBF0-F70EB18C65C0
-      :items:
-        content_for:                                             #  93FC2763-4D69-4742-8B87-4BF407686333
-        content_tag:                                             #  4FFA1B7E-F82C-410E-B8F3-28A3DD1BC061
-        javascript_include_tag:                                  #  86C07AEC-CC84-45B8-918A-42B2232CBB96
-        stylesheet_link_tag:                                     #  07B69BB0-0C43-4020-9A63-CF9C19FD1D69
-    Jbuilder:                                                    #  ED37D3D3-5EDB-4CD1-9073-A577239FBD09
-      :items:
-        'jbuilder: collection partial':                          #  210D3C62-4CFF-41E9-9238-8EFA5FE750C7
-        'jbuilder:: meta':                                       #  334511E8-C321-48A4-9FF3-13F276AAB6E9
-        'jbuilder: model + partial':                             #  A307B124-6A8B-4D48-8AFB-9CFC39635090
-        'jbuilder: model attrs':                                 #  50FA2525-4325-4253-BA26-E1E69CA148D8
-        def to_builder... end:                                   #  7402FF62-E071-4C8B-8133-F36CFF4047DB
-    Tasks:                                                       #  38B93960-C72C-4F15-9124-44F648A195C8
-      :items:
-        'Rake: namespace':                                       #  8AD5D2DE-FBE0-4957-90ED-507973338E55
-        'Rake: task':                                            #  028F6742-323B-4C49-916C-EFFE0B6EE4D6
-    Tests:                                                       #  CEE428FA-D116-4ED0-9087-D1F61868A341
-      :items:
-        RSpec.include_context:                                   #  719B6F2E-F8E6-4EC7-A236-7CC4D81BEDDF
-        RSpec.shared_context:                                    #  3621CC46-626E-40C1-B745-69C8CB746F0A
-    gemspec:                                                     #  E27DF288-21DE-4752-8177-2284EADBAD75
-Join line with semicolon:                                    #  34F903D9-65B5-49C9-85CC-768B622F0A25
-Squeeze line:                                                #  C40C6A1E-5E23-43DE-BA9A-F12A832946E0
-Toggle array syntax style:                                   #  E3D7BE9E-0C5A-42C8-8788-A962DAF39917
-Select enclosing typing pairs:                               #  D7774073-EB52-4317-AA34-3C8D3F0AF662
-"-----------------------------------":                   #  "-----------------------------------"
-Toggle ERb Tags:                                             #  1F66996F-7A93-450B-8CDE-A159454347BF
-Insert ERb’s <% .. %> or <%= .. %>:                          #  A5C26005-DE5B-4FEE-94C4-E00F08148C8A
-"-----------------------------------":                   #  "-----------------------------------"
+    Open coffee/js on current line:                          #  F2895C20-0019-4043-BA29-115A32A3DAF6
+    Open gem homepage:                                       #  FF4CC9C1-E91B-485B-B0AF-C431802EB38F
+    Open gem in editor:                                      #  F16D4451-D239-4556-9355-14CF2D5E93FD
+    Open project's Gemfile:                                  #  5D06391E-9A60-4623-8A77-4E17D3796004
+    Open require:                                            #  0B6DBB2C-7800-4E21-B54B-215FDC19842A
+    "-----------------------------------":                   #  "------------------------------------"
+    "Alternate File":                                          #  91867361-8186-4C99-9EDF-973F1ADCFED1
+    "Alternate File (Down)":                                   #  FAABB59F-59E6-40B3-8FEE-34E3975814EA
+Routes:                                                      #  62D4C6F7-6548-42BD-B5CB-1F3B5E3CB294
+  :items:
+    "concern :name do ... end (routes)":                       #  3374A1C1-600C-4723-B6CE-5D1F603D990A
+    "shallow do ... end":                                      #  C9182D30-B0AB-4E23-9C5D-4802C0DB6121
 Documentation (Ruby-doc):                                    #  43CCD142-31A9-4C0C-88C4-163145938818
+Heredoc:                                                     #  3563BD64-3A1D-41D2-BD90-88244AC6A4A9
+Insert ERb’s <% .. %> or <%= .. %>:                          #  A5C26005-DE5B-4FEE-94C4-E00F08148C8A
+Join line with semicolon:                                    #  34F903D9-65B5-49C9-85CC-768B622F0A25
+Select enclosing typing pairs:                               #  D7774073-EB52-4317-AA34-3C8D3F0AF662
+Squeeze line:                                                #  C40C6A1E-5E23-43DE-BA9A-F12A832946E0
+Strip comments:                                              #  BD39FC5F-E1EE-4758-AFBF-188445A09C83
+Toggle ERb Tags:                                             #  1F66996F-7A93-450B-8CDE-A159454347BF
+Toggle array syntax style:                                   #  E3D7BE9E-0C5A-42C8-8788-A962DAF39917

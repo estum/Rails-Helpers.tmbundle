@@ -1,18 +1,25 @@
+require "pathname"
+
 class NamespacedModule
-  attr_accessor :namespace, :output, :module_type, :superklass
+  attr_accessor :namespace, :output, :module_type, :superklass, :filepath, :project_directory, :path
+  
+  alias_method :project, :project_directory
   
   def initialize(module_type = :module, superklass = nil)
     @module_type = module_type
     @superklass = superklass
+    %w(filepath project_directory).each {|name| self.send :"#{name}=", Pathname.new(ENV["TM_#{name.upcase}"]) }
+    @path = filepath.relative_path_from(project)
+  end
+  
+  def take_trails(&block)
+    path.dirname.to_s.split("/").reverse_each.each_cons(2).take_while(&block).map(&:first)
   end
   
   def namespace
-    @namespace ||= begin
-      trails = ENV['TM_DIRECTORY'].split('/') - ENV['TM_PROJECT_DIRECTORY'].split('/')
-      trails.reverse!
-      trails.take_while.with_index do |basename, index|
-        !(trails[index.next].to_s =~ /^app$/) && !(basename =~ /^concerns|controllers|helpers|models|lib$/)
-      end
+    @namespace ||= take_trails do |base, next_item|
+      !(next_item =~ /^app$/) && 
+      !(base      =~ /^lib|controllers|helpers|models|concerns$/)
     end
   end
   
@@ -49,6 +56,7 @@ class NamespacedModule
     case ENV['TM_DIRECTORY']
     when /controllers/ then ["ApplicationController", "ActionController::Base"]
     when /models/      then ["ActiveRecord::Base"]
+    when /jobs/        then ["ActiveJob::Base"]
                        else ["ParentClass", @superklass]
     end
   end

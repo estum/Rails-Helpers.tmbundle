@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -rpathname
+
+new_path  = STDIN.read[/("|')(.+?)\1/, 2]
+project   = Pathname.new(ENV['TM_PROJECT_DIRECTORY'])
+
+new_path = (project/'lib'/new_path).sub_ext('.rb')
+new_path.dirname.mkpath
+if new_path.dirname.exist? &amp;&amp; new_path.dirname.directory?
+  system ENV['TM_MATE'], new_path.to_s, "-r", "--no-wait"
+else
+  puts "Can't create the path '#{new_path.to_s}'"
+end</string>
+	<key>input</key>
+	<string>scope</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^C</string>
+	<key>name</key>
+	<string>Create lib/(:under_cursor).rb</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>meta.require.ruby string</string>
+	<key>uuid</key>
+	<string>04007631-46EF-47E0-A857-DD8C48C337C8</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

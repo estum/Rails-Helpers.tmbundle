@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>params${1:.require(:${2:${TM_FILENAME/(?:\\A|_)([A-Za-z0-9]+)(?:s)(?:_controller\.rb)?/(?2::$1)/g}})}${3:.permit(:${4:id}${5:, :${6:name}})}</string>
+	<key>name</key>
+	<string>params.require(..).permit(..)</string>
+	<key>scope</key>
+	<string>source.ruby.rails meta.rails.controller</string>
+	<key>tabTrigger</key>
+	<string>param</string>
+	<key>uuid</key>
+	<string>21FCF4A3-1AC6-48F3-AAD0-E05D677839F3</string>
+</dict>
+</plist>

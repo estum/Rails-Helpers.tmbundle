@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>${1|class_eval,module_eval,instance_eval|} &lt;&lt;-"RUBY"${2:.strip_heredoc}${3:, __FILE__, __LINE__ + 1}
+  def$0
+RUBY</string>
+	<key>name</key>
+	<string>class_eval heredoc </string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>tabTrigger</key>
+	<string>defmeta</string>
+	<key>uuid</key>
+	<string>3FCAEDDF-81A6-43A4-8B7E-8F0C23D35618</string>
+</dict>
+</plist>

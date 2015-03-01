@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+
+${TM_RUBY:-ruby} -rpathname -rrubygems -r"active_support/core_ext/string/inflections" &lt;&lt;-"RUBY" - "$(cat /dev/stdin)"
+if /include +(?&lt;module_name&gt;\w+)/ =~ ARGV[0]
+  filename = module_name.underscore + ".rb"
+  namespace = ENV['TM_FILENAME'][/.*(?=.rb$)/]
+  filepath = Pathname.new(ENV['TM_PROJECT_DIRECTORY']) / "app/models/concerns" / namespace / filename
+  puts filepath
+  if filepath.exist?
+    exec %[mate --no-wait "#{filepath.to_s}"]
+  else
+    filepath.dirname.mkpath
+    exec %[echo -n "nmod" &gt; "#{filepath.to_s}" &amp;&amp; mate --no-wait -l1\:5 "#{filepath.to_s}"]
+  end
+end
+RUBY</string>
+	<key>input</key>
+	<string>line</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~@C</string>
+	<key>name</key>
+	<string>Create in models/concerns</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.ruby.rails meta.rails.model</string>
+	<key>uuid</key>
+	<string>37F51986-E207-410F-B08D-C42965B7BBDB</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

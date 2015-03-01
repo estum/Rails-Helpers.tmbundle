@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+
+${TM_RUBY:-ruby} -rpathname -rrubygems -r"active_support/core_ext/string/inflections" &lt;&lt;-'RUBY'
+items = []
+root  = Pathname.new(ENV["TM_FILEPATH"]).sub(%{.rb}, "")
+
+Pathname.glob (root / "**/*.rb").to_s do |file|
+  items &lt;&lt; file.basename(".rb").to_s.classify
+end
+
+print "autoload :${1|#{items.join(?,)}|}$0"
+RUBY</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>autoload</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>snippet</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>tabTrigger</key>
+	<string>al</string>
+	<key>uuid</key>
+	<string>75093D33-8407-4890-87B6-6CD3243BC1EF</string>
+</dict>
+</plist>

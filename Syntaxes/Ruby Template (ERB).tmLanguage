@@ -82,6 +82,8 @@
 			</array>
 		</dict>
 	</dict>
+	<key>isDisabled</key>
+	<true/>
 	<key>keyEquivalent</key>
 	<string>^~R</string>
 	<key>name</key>

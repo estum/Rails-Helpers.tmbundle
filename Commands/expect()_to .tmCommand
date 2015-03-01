@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+require ENV['TM_SUPPORT_PATH'] + "/lib/escape"
+
+@line = STDIN.read.to_s
+@ident = @line[/^ */]
+@line.strip!
+@line = "actual" if @line.empty?
+
+open_brace = '${1|\(, { |}'
+close_brace = '${1/(\()|( \{ )/(?1:\):(?2: }:))/}'
+@line = open_brace + "${2:#@line}" + close_brace
+
+@snippet = &lt;&lt;-SNIPPET
+#{@ident}expect#{ @line }.to \#$0
+SNIPPET
+
+@tooltip = "Press tab after '#' to autocomplete expectations"
+
+STDOUT.puts @snippet
+spawn %[$DIALOG tooltip &lt; /dev/null --text #{e_sh @tooltip}]</string>
+	<key>input</key>
+	<string>line</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>name</key>
+	<string>expect(...).to ...</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>snippet</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
+	<key>scope</key>
+	<string>source.ruby.rspec</string>
+	<key>tabTrigger</key>
+	<string>exto</string>
+	<key>uuid</key>
+	<string>F9807E48-739F-4B81-B883-AA5865B6DFAC</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

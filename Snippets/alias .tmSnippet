@@ -3,17 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${3:desc "${4:Task description}"}
-task :${1:all} ${2:=&gt; :environment} do
-  $0
-end</string>
+	<string>alias :${1:new_name} :${0:old_name}</string>
 	<key>name</key>
-	<string>Rake: task</string>
+	<string>alias ...</string>
 	<key>scope</key>
-	<string>source.ruby &amp; attr.project.rake</string>
+	<string>source.ruby</string>
 	<key>tabTrigger</key>
-	<string>t</string>
+	<string>ali</string>
 	<key>uuid</key>
-	<string>028F6742-323B-4C49-916C-EFFE0B6EE4D6</string>
+	<string>535FB74E-2251-41D4-98A8-89CF67AE376E</string>
 </dict>
 </plist>

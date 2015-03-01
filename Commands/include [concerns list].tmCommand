@@ -8,16 +8,29 @@
 	<string>#!/usr/bin/env bash
 
 ${TM_RUBY:-ruby} -rpathname -rrubygems -r"active_support/core_ext/string/inflections" &lt;&lt;-'RUBY'
-items = []
+proj = Pathname.new ENV["TM_PROJECT_DIRECTORY"]
+prior, items, ns, nsmatch = [], [], nil, nil
+source = Pathname.new(ENV['TM_FILEPATH']).sub_ext("").relative_path_from(proj)
 
-Pathname.glob(ENV["TM_PROJECT_DIRECTORY"]+"/app/**/concerns") do |conc|
-  Pathname.glob((conc/"**/*.rb").to_s) do |file|
-    dir, bn = file.relative_path_from(conc).split
-    items &lt;&lt; (dir+bn.basename(".rb")).to_s.classify
+Pathname.glob(proj / "app/**/concerns") do |conc|
+  unless ns
+    r = conc.dirname.relative_path_from(proj)
+    source.ascend {|v| ns = source.relative_path_from(v).to_s.camelize if v == r; break if ns }
+    nsmatch = /^#{ns}::(.+)$/i if ns
+  end
+  
+  Pathname.glob(conc / "**/*.rb") do |file|
+    dir, bn    = file.relative_path_from(conc).split
+    class_name = (dir / bn.basename(".rb")).to_s.camelize
+    if nsmatch &amp;&amp; nsmatch =~ class_name
+      prior &lt;&lt; $1
+    else
+      items &lt;&lt; class_name
+    end
   end
 end
 
-print "include ${1|#{items.join(?,)}|}$0"
+print "include ${1|#{(prior | items).join(?,)}|}$0"
 RUBY</string>
 	<key>input</key>
 	<string>none</string>

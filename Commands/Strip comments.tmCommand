@@ -7,25 +7,24 @@
 	<key>command</key>
 	<string>#!/usr/bin/env bash
 
-if grep 'rails' "${TM_PROJECT_DIRECTORY}/Gemfile" &gt;/dev/null 2&gt;&amp;1 ; then
-  ruby18 "${TM_BUNDLE_SUPPORT}/bin/open_migration.rb"
-fi</string>
+echo
+cat | egrep -v "\s*${TM_COMMENT_START}+.*"</string>
 	<key>input</key>
-	<string>none</string>
+	<string>selection</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@M</string>
+	<string>^@|</string>
 	<key>name</key>
-	<string>Open migration drop-down list</string>
+	<string>Strip comments</string>
 	<key>outputCaret</key>
 	<string>heuristic</string>
 	<key>outputFormat</key>
 	<string>text</string>
 	<key>outputLocation</key>
-	<string>toolTip</string>
+	<string>replaceInput</string>
 	<key>uuid</key>
-	<string>8987252A-26CA-4718-BCA9-BBCE8C342754</string>
+	<string>BD39FC5F-E1EE-4758-AFBF-188445A09C83</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>

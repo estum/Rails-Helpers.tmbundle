@@ -3,17 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${3:desc "${4:Task description}"}
-task :${1:all} ${2:=&gt; :environment} do
-  $0
-end</string>
+	<string>).to be_between(${1:min}, ${2:max}).${3|inclusive,exclusive|}</string>
 	<key>name</key>
-	<string>Rake: task</string>
+	<string>.to be_between ...</string>
 	<key>scope</key>
-	<string>source.ruby &amp; attr.project.rake</string>
+	<string>source.ruby.rspec</string>
 	<key>tabTrigger</key>
-	<string>t</string>
+	<string>).to #</string>
 	<key>uuid</key>
-	<string>028F6742-323B-4C49-916C-EFFE0B6EE4D6</string>
+	<string>D9B58C84-4CDA-4EA7-80CB-9583DD9A24EE</string>
 </dict>
 </plist>

@@ -3,17 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${3:desc "${4:Task description}"}
-task :${1:all} ${2:=&gt; :environment} do
-  $0
+	<string>def respond_to_missing?(method, ${1|*,include_private=false|})
+  ${2:${3:method =~ /${5:meta_\w+}/} || ${4:super}}
 end</string>
 	<key>name</key>
-	<string>Rake: task</string>
+	<string>respond_to_missing?</string>
 	<key>scope</key>
-	<string>source.ruby &amp; attr.project.rake</string>
+	<string>source.ruby</string>
 	<key>tabTrigger</key>
-	<string>t</string>
+	<string>defrtm</string>
 	<key>uuid</key>
-	<string>028F6742-323B-4C49-916C-EFFE0B6EE4D6</string>
+	<string>4ECEC5E8-1075-40B7-BE0F-2BB377DC2BB2</string>
 </dict>
 </plist>

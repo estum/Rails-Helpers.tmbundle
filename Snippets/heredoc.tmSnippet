@@ -3,17 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${3:desc "${4:Task description}"}
-task :${1:all} ${2:=&gt; :environment} do
+	<string>&lt;&lt;${2|-,|}${3|',",|}${1|C,CPP,CSS,HTML,JAVASCRIPT,JS,LUA,MD,RUBY,SH,SHELL,SQL|}$3${4:.strip_heredoc}
   $0
-end</string>
+$1</string>
 	<key>name</key>
-	<string>Rake: task</string>
+	<string>heredoc</string>
 	<key>scope</key>
-	<string>source.ruby &amp; attr.project.rake</string>
+	<string>source.ruby</string>
 	<key>tabTrigger</key>
-	<string>t</string>
+	<string>&lt;&lt;-</string>
 	<key>uuid</key>
-	<string>028F6742-323B-4C49-916C-EFFE0B6EE4D6</string>
+	<string>3563BD64-3A1D-41D2-BD90-88244AC6A4A9</string>
 </dict>
 </plist>

@@ -4,6 +4,8 @@
 <dict>
 	<key>content</key>
 	<string>content_tag ${1::${2|div,span,li,ul,button|}}, ${3:raw(${4:contents})}, ${5:class: ${6|%w(${7:block}),["${8:block}"]|}}</string>
+	<key>isDisabled</key>
+	<true/>
 	<key>name</key>
 	<string>content_tag</string>
 	<key>scope</key>
