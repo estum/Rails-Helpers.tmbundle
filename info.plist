@@ -7,7 +7,8 @@
 	<key>contactName</key>
 	<string>Tõnis Simo</string>
 	<key>description</key>
-	<string>Groovy Ruby on Rails helpers for TextMate 2</string>
+	<string>Groovy Ruby on Rails helpers for TextMate 2
+</string>
 	<key>mainMenu</key>
 	<dict>
 		<key>excludedItems</key>
@@ -204,7 +205,7 @@
 		</dict>
 	</dict>
 	<key>name</key>
-	<string>Rails Helpers</string>
+	<string>Ruby on Rails Missing</string>
 	<key>uuid</key>
 	<string>F20F89E7-670B-421A-8AA1-DBD466FE813F</string>
 </dict>
