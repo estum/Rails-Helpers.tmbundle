@@ -5,28 +5,27 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby18
+	<string>#!/usr/bin/env bash
 
-require File.join(ENV['TM_BUNDLE_SUPPORT'], 'bin', 'alternate_file.rb')
-AlternateFile.down</string>
+cd ${TM_PROJECT_DIRECTORY} &amp;&amp; ${TM_RUBY:-ruby} "${TM_BUNDLE_SUPPORT}/bin/require_completion.rb"</string>
 	<key>input</key>
-	<string>none</string>
+	<string>word</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>~@</string>
+	<string>@</string>
 	<key>name</key>
-	<string>Alternate File (Down)</string>
+	<string>require completion</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
 	<string>text</string>
 	<key>outputLocation</key>
-	<string>toolTip</string>
+	<string>atCaret</string>
 	<key>scope</key>
-	<string>source.ruby.rails, text.html.erb.rails, source.ruby.rails.embedded.html, source.yaml, text.haml, source.css, source.js, source.sass</string>
+	<string>meta.require.ruby string.quoted</string>
 	<key>uuid</key>
-	<string>FAABB59F-59E6-40B3-8FEE-34E3975814EA</string>
+	<string>ED149112-C0BD-40E2-951B-6C4DDCF1E853</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>

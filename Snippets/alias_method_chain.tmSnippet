@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${3:def ${1/\A([A-Za-z0-9]+)(?:\?|\z)/$1/}_with_$2${1/\A([A-Za-z0-9]+)(\?|\z)/$2/}
-  ${4:${1/\A([A-Za-z0-9]+)(?:\?|\z)/$1/}_without_$2${1/\A([A-Za-z0-9]+)(\?|\z)/$2/}}$5
+	<string>${1:def ${2/\A(\w+)(?:[\?!=]|\z)/$1/}_with_$3${2/\A\w+([\?!=]?)\z/$1/}
+  ${4:${2/\A(\w+)(?:[\?!=]|\z)/$1/}_without_$3${2/\A\w+([\?!=]?)\z/$1/}}$5
 end
 
-}alias_method_chain :${1:target}, :${2:feature}$0</string>
+}alias_method_chain :${2:target}, :${3:feature}$0</string>
 	<key>name</key>
 	<string>alias_method_chain</string>
 	<key>scope</key>

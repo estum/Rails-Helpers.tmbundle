@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array/>
+	<key>injectionSelector</key>
+	<string>comment, text.plain</string>
+	<key>name</key>
+	<string>Whenever</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>markup.underline.schedule.frequency</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\b(FREQUENT|DAILY|WEEKLY|HOURLY)\b(?=\s+JOBS?)</string>
+			<key>name</key>
+			<string>storage.type.class.schedule.frequency</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(JOBS)\b</string>
+			<key>name</key>
+			<string>storage.type.class.schedule.jobs</string>
+		</dict>
+		<dict>
+			<key>caprures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.raw.inline.schedule.desc</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?:JOBS)\s*([\s\w]+)(?=\b)</string>
+			<key>name</key>
+			<string>storage.type.class.schedule.desc</string>
+		</dict>
+	</array>
+	<key>scope</key>
+	<string>attr.rev-path.rb.schedule.config</string>
+	<key>scopeName</key>
+	<string>text.whenever</string>
+	<key>uuid</key>
+	<string>B51E70A5-1084-4CBD-9586-7927BA36F86F</string>
+</dict>
+</plist>

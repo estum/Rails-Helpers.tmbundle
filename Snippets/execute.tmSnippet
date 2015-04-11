@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>execute ${1|&lt;&lt;-"SQL".strip_heredoc
+  ,%{|}$0${1/^&lt;&lt;-"(SQL)".+|%{|(.+)$/(?2::(?1:\n$1:}))/}</string>
+	<key>name</key>
+	<string>execute</string>
+	<key>scope</key>
+	<string>meta.rails.migration - meta.rails.migration.create_table - meta.rails.migration.change_table</string>
+	<key>tabTrigger</key>
+	<string>exe</string>
+	<key>uuid</key>
+	<string>141E5600-CD89-422B-BFCB-7A749B4366F2</string>
+</dict>
+</plist>

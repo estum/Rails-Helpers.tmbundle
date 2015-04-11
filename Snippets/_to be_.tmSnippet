@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>).to be_${1|truthy,falsey,nil,persist,present|}</string>
+	<string>).to be_${1|truthy,falsey,nil,persisted,present|}</string>
 	<key>name</key>
 	<string>.to be_...</string>
 	<key>scope</key>

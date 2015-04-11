@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>every(${1:${2:1}.${3|day,week,month|}${4:, at: '${5:12}:${6:00}${7|am,pm|}'}}) { ${8|rake,runner,job|} ${9:"${10:db:backup}"} }
+$0</string>
+	<key>keyEquivalent</key>
+	<string>$</string>
+	<key>name</key>
+	<string>Whenever: every</string>
+	<key>scope</key>
+	<string>attr.rev-path.rb.schedule.config</string>
+	<key>tabTrigger</key>
+	<string>e</string>
+	<key>uuid</key>
+	<string>A8810690-D560-4427-BB73-2B65181BA72B</string>
+</dict>
+</plist>

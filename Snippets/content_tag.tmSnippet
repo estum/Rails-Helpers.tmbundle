@@ -4,14 +4,12 @@
 <dict>
 	<key>content</key>
 	<string>content_tag ${1::${2|div,span,li,ul,button|}}, ${3:raw(${4:contents})}, ${5:class: ${6|%w(${7:block}),["${8:block}"]|}}</string>
-	<key>isDisabled</key>
-	<true/>
 	<key>name</key>
 	<string>content_tag</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>tabTrigger</key>
-	<string>tag</string>
+	<string>ctag</string>
 	<key>uuid</key>
 	<string>4FFA1B7E-F82C-410E-B8F3-28A3DD1BC061</string>
 </dict>

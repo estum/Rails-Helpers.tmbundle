@@ -11,7 +11,7 @@ RUBY</string>
 	<key>scope</key>
 	<string>source.ruby</string>
 	<key>tabTrigger</key>
-	<string>defmeta</string>
+	<string>defeval</string>
 	<key>uuid</key>
 	<string>3FCAEDDF-81A6-43A4-8B7E-8F0C23D35618</string>
 </dict>

@@ -7,6 +7,8 @@
 	<key>command</key>
 	<string>#!/usr/bin/env bash
 
+cd "${TM_PROJECT_DIRECTORY}"
+
 ${TM_RUBY:-ruby} -rpathname -rrubygems -ractive_support/core_ext/string/inflections &lt;&lt;-'RUBY'
 target_name  = ENV['TM_SELECTED_TEXT'] || ENV['TM_CURRENT_WORD']
 underscored  = target_name.demodulize.underscore

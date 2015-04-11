@@ -5,26 +5,23 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
+	<string>#!/usr/bin/env bash
 
-unless ENV['TM_FILENAME'] =~ /^(?:Gemfile.*|.*\.gemspec)$/
-  abort
-end
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
-require 'shellwords'
-project_path = Shellwords.shellescape(ENV['TM_PROJECT_DIRECTORY'])
+cd $TM_PROJECT_DIRECTORY
 
-line = ENV['TM_CURRENT_LINE'].strip
-if /(?:gem|add\w*_dependency)\s+(?&lt;q&gt;['"]{1})(?&lt;gem_name&gt;.+?)\k&lt;q&gt;/i =~ line
-  cmd = %{cd #{project_path}; cmd="gem spec #{gem_name} homepage --marshal 2&gt;/dev/null"; eval $cmd || bundle exec $cmd}
-  homepage = IO.popen(cmd, &amp;:read)
-  fail! "Cant get homepage: #{homepage.inspect}" if homepage.nil? || homepage.length.zero?
-  system 'open', Marshal.load(homepage) if homepage
-else
-  fail! "Cant get gem name: #{line.inspect}"
-end
+GEM_NAME=$(echo "${TM_CURRENT_LINE}" | "${TM_RUBY}" -ne "/(?:gem|add\w*_dependency)\s+'([\w-]+?)'/i === \$_; puts \$1")
 
-puts nil</string>
+function get_homepage {
+  cmd="gem spec ${GEM_NAME} homepage --marshal"  # 2&gt;/dev/null"
+  MARSHALL=$(eval ${cmd} || bundle exec ${cmd})
+  echo "${MARSHALL}" | "${TM_RUBY}" -ne 'puts Marshal.load($_)'
+}
+
+HOMEPAGE="$(get_homepage)"
+
+[[ -n "${HOMEPAGE}" ]] &amp;&amp; open "${HOMEPAGE}"</string>
 	<key>input</key>
 	<string>line</string>
 	<key>inputFormat</key>
@@ -38,7 +35,7 @@ puts nil</string>
 	<key>outputFormat</key>
 	<string>text</string>
 	<key>outputLocation</key>
-	<string>discard</string>
+	<string>toolTip</string>
 	<key>scope</key>
 	<string>attr.rev-path.gemspec,attr.rev-path.Gemfile,attr.rev-path.lock.Gemfile</string>
 	<key>uuid</key>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>isDisabled</key>
+	<true/>
+	<key>name</key>
+	<string>Completion: require strings</string>
+	<key>scope</key>
+	<string>meta.require.ruby string.quoted</string>
+	<key>settings</key>
+	<dict>
+		<key>completionCommand</key>
+		<string>ruby &lt;&lt;-"RUBY"
+  require "pathname"
+  ptrn = /\A#{Regexp.escape(ENV["TM_CURRENT_WORD"].to_s)}/
+  env_path = Pathname.new(ENV["TM_PROJECT_DIRECTORY"]).join("config/environment.rb")
+  
+  if env_path.exist?
+    require env_path.to_s
+    puts( $LOAD_PATH.flat_map do |base|
+            base = Pathname.new(base)
+            Pathname.glob(base / "**/*.rb").map { |f| f.relative_path_from(base).sub_ext("").to_s }
+          end )
+  end
+RUBY
+</string>
+	</dict>
+	<key>uuid</key>
+	<string>9523BA5E-4E72-46BE-AFEB-6E69652CDF1B</string>
+</dict>
+</plist>

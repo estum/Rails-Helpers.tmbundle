@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>&lt;&lt;${2|-,|}${3|',",|}${1|C,CPP,CSS,HTML,JAVASCRIPT,JS,LUA,MD,RUBY,SH,SHELL,SQL|}$3${4:.strip_heredoc}
+	<string>&lt;&lt;${1:-}${2|',"|}${3|C,CPP,CSS,HTML,JAVASCRIPT,JS,LUA,MD,RUBY,SH,SHELL,SQL|}$2${4:.${5|strip_heredoc,gsub(/^\s+\\\|/\, '')|}}
   $0
 $1</string>
 	<key>name</key>

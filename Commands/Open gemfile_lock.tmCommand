@@ -5,28 +5,25 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby18
+	<string>#!/usr/bin/env bash
 
-require File.join(ENV['TM_BUNDLE_SUPPORT'], 'bin', 'alternate_file.rb')
-AlternateFile.up</string>
+mate --no-wait "${TM_PROJECT_DIRECTORY}/Gemfile.lock"</string>
 	<key>input</key>
 	<string>none</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>~@</string>
+	<string>^~G</string>
 	<key>name</key>
-	<string>Alternate File</string>
+	<string>Open gemfile.lock</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
 	<string>text</string>
 	<key>outputLocation</key>
-	<string>toolTip</string>
-	<key>scope</key>
-	<string>source.ruby.rails, text.html.erb.rails, source.ruby.rails.embedded.html, source.yaml, text.haml, source.css, source.js, source.sass</string>
+	<string>discard</string>
 	<key>uuid</key>
-	<string>91867361-8186-4C99-9EDF-973F1ADCFED1</string>
+	<string>84224427-2162-4A7F-B420-822D9910DB0C</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>
