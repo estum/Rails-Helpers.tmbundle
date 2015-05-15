@@ -3,16 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${1|private,protected|}${2:
-
-${3:def}}</string>
+	<string>instance_variable_get(:"@${1:name}")$0</string>
 	<key>name</key>
-	<string>private/protected</string>
+	<string>instance_variable_get</string>
 	<key>scope</key>
 	<string>source.ruby</string>
 	<key>tabTrigger</key>
-	<string>pr</string>
+	<string>ivar</string>
 	<key>uuid</key>
-	<string>E11164D8-52CF-407B-A0F7-B19C878B867B</string>
+	<string>B847B5B0-E9CB-4D47-A2E6-394FD5E6B3BB</string>
 </dict>
 </plist>

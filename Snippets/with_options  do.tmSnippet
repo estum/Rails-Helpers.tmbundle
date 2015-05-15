@@ -3,24 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${1|concern,concerning|} :${2:Module} do
-  ${3:included do
-    $4
-  end
-  
-  }${5:class_methods do
-    $6
-  end
-  
-  }$0
+	<string>with_options ${1:${2:key}: ${3:value}}$4 do
+  $0
 end</string>
 	<key>name</key>
-	<string>concerning</string>
+	<string>with_options ... do</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>tabTrigger</key>
-	<string>concern</string>
+	<string>wopt</string>
 	<key>uuid</key>
-	<string>8B91ABC5-E68C-46E5-97E2-091D45F375F1</string>
+	<string>1FB0EBB7-EEAD-420D-AC8A-F0B394824EAC</string>
 </dict>
 </plist>
