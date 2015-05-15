@@ -7,73 +7,9 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 
-EXP_ARY      = /(?&lt;=^\[)                      (.+?)     (?=   \]$)/x
-MATCH_SYMBOL = /(?&lt;=^:   |^)(?&lt;!^['"])    (:?)(.*?) (?=(?![^'"])$)/x
-MATCH_STRING = /(?&lt;=^['"]|^)(?&lt;!^:   ) (['"]?)(.+?)(\1) (?=     $)/x
-SCAN_ITEMS   = /(?&lt;=^\[|,)                    .*?      (?=,|\])  /x
+require File.join(ENV['TM_BUNDLE_SUPPORT'], "array_syntax.rb")
 
-def all_items_matches?(items, pattern)
-  items.all? { |i| pattern === i }
-end
-
-def swap_syntax_ary(char, ary, pat)
-  upper = 0
-  mod_ary = ary.map(&amp;:strip).grep(pat) { $1.empty? ? (upper += 1; "\#{#{$2}}") : $2 }.join(' ')
-  char = char.to_s.upcase if upper  &gt; 0
-  "%#{char}(#{mod_ary})"
-end
-
-def ary_match(part)
-  if EXP_ARY =~ part
-    ary = part.scan(SCAN_ITEMS)
-    if ary.all? { |i| i =~ MATCH_SYMBOL }
-      swap_syntax_ary(:i, ary, MATCH_SYMBOL)
-    elsif ary.all? { |i| i =~ MATCH_STRING }
-      swap_syntax_ary(:w, ary, MATCH_STRING)
-    end
-  else
-    if part =~ %r{^%(w|i)\p{Ps}\s*(.*?)\s*?\p{Pe}$}i
-      is_string = $1.downcase == "w"
-      s = $2.split(/\s+/).map {|v| v.start_with?('#') ? v[/(?&lt;=\#\{)(.*?)(?=\})/, 1] : (is_string ? "'#{v}'" : ":#{v}") }.join(", ")
-      "[#{s}]"
-    end
-  end
-end
-
-input_text = STDIN.read
-
-ARRAY_LEFT = /(%[wi]\p{Ps}|\[)(.*$)/ix
-ARRAY_RIGHT = /^(.+)(?=\p{Pe})\p{Pe}/x
-
-def ary_part_of_cur(part, pattern)
-  p part.scan(pattern).flatten.join
-end
-
-def ary_of_cur(line, cur)
-  left  = line[0, cur].scan(ARRAY_LEFT).flatten
-  close = left[0][-1] == '[' ? '\]' : '\p{Pe}'
-  right = line[cur..-1].scan(/(?&lt;=^)(.*)(#{close})/).flatten
-  left.join + right.join
-end
-
-
-if ENV['TM_SELECTED_TEXT'].to_s.length &gt; 0
-  output = ary_match(input_text)
-  print((output.to_s.length &gt; 0) ? output : input_text)
-else
-  input_text.lines.each_with_index do |input_line, n|
-    line = ENV['TM_CURRENT_LINE']
-    output = 
-      if ENV['TM_LINE_NUMBER'].to_i == n + 1
-        matched_array = ary_of_cur(line, ENV['TM_LINE_INDEX'].to_i)
-        
-        if (matched_array.length &gt; 0) &amp;&amp; (output = ary_match(matched_array))
-          input_line.sub(matched_array, output)
-        end
-      end
-    print(output || input_line)
-  end
-end</string>
+ArraySyntax.call(STDIN.read)</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>inputFormat</key>
