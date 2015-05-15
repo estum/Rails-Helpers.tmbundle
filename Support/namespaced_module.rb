@@ -17,9 +17,12 @@ class NamespacedModule
   end
 
   def namespace
-    @namespace ||= take_trails do |base, next_item|
-      !(next_item =~ /^app$/) &&
-      !(base      =~ /^lib|controllers|helpers|models|concerns$/)
+    @namespace ||= begin
+      ns = take_trails do |base, next_item|
+        !(next_item =~ /^app$/) &&
+        !(base      =~ /^lib|controllers|helpers|models|concerns$/)
+      end
+      Array(ns.tap(&:reverse!) * "::")
     end
   end
 
@@ -40,8 +43,8 @@ class NamespacedModule
   end
 
   def tab_and_line
-    tab = self.tab
-    proc {|line| "#{tab}#{line}" }
+    _tab = tab()
+    proc { |line| "#{_tab}#{line}" }
   end
 
   def module?
@@ -63,44 +66,12 @@ class NamespacedModule
   end
 
   def inheritance
-    return "" if module? or !inherits?
-    s!([3]=>" < #{choose!([2]=>heuristic_inheritances)}")
+    return "" if module? || !inherits?
+    s!(3, " < #{choose!(2, *heuristic_inheritances)}")
   end
 
   def name
     "${TM_FILENAME/(?:\\A|_)([A-Za-z0-9]+)(?:\\.rb)?/(?2::\\u$1)/g}".freeze
-  end
-
-  def capitalize!(name)
-    name.gsub!(/(?:_)?([a-z0-9]*)/i){$1.capitalize}
-  end
-
-  def s(*args)
-    format = "%d"
-    if block_given?
-      format = "{%d#{args[0]}}"
-      args = yield
-    end
-    "$#{sprintf(format, *args)}"
-  end
-
-  def s!(opts = {})
-    pos, choise = *opts.to_a[0]
-    s(":%s"){[ cur(*pos), choise ]}
-  end
-
-  def choose!(opts = {})
-    pos, choises = *opts.to_a[0]
-    return s! pos=>choises[0] unless choises.length > 1
-    s("|%s|"){[ cur(*pos), choises.join(',') ]}
-  end
-
-  def type_choise(*args)
-    choose! [:x,*args] => [:class, :module]
-  end
-
-  def tabbed_inner
-    @output.each_line.map(&tab_and_line)
   end
 
   # module ${n+2:${TM_FILENAME/../..$1/}${n+4: < ${n+3|${ParentClass}|}}}
@@ -108,7 +79,7 @@ class NamespacedModule
   # end
   def declare!
     @output = <<-TM_SNIPPET.gsub(/^\s+\|/, '')
-      |#{module_type} #{s!([1]=>name)}#{inheritance}
+      |#{module_type} #{s!(1, name)}#{inheritance}
       |#{tab}#{s(0)}
       |end
     TM_SNIPPET
@@ -116,7 +87,7 @@ class NamespacedModule
 
   def wrap_inner!(name, i)
     @output = <<-TM_SNIPPET.gsub(/^\s+\|/, '')
-      |#{type_choise(-i,-1)} #{s!([:x,-i]=>name)}
+      |#{type_choise(-i,-1)} #{s!([:x,-i], name)}
       |#{tabbed_inner}
       |end
     TM_SNIPPET
@@ -129,5 +100,46 @@ class NamespacedModule
       wrap_inner! name, i
     end
     @output
+  end
+
+  def tabbed_inner
+    @output.each_line.map(&tab_and_line)
+  end
+
+  def type_choise(*args)
+    choose!([:x, *args], :class, :module)
+  end
+
+  protected
+
+  def format_placeholder(*args)
+    fstr = "%d"
+    if block_given?
+      fstr << args[0]
+      args = yield
+    end
+    "${#{fstr % args}}"
+  end
+
+  alias_method :s, :format_placeholder
+
+  def placeholder_snippet(pos, choise, fstr = ':%s')
+    format_placeholder(fstr) { [cur(*pos), choise] }
+  end
+
+  alias_method :s!, :placeholder_snippet
+
+  def placeholder_choises(pos, *choises)
+    if choises.size > 1
+      placeholder_snippet(pos, choises.join(','), '|%s|')
+    else
+      placeholder_snippet(pos, choises[0])
+    end
+  end
+
+  alias_method :choose!, :placeholder_choises
+
+  def capitalize!(name)
+    name.gsub!(/(?:_)?([a-z0-9]*)/i){ $1.capitalize }
   end
 end
