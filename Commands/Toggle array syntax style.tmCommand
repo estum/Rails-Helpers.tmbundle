@@ -9,9 +9,11 @@
 
 require File.join(ENV['TM_BUNDLE_SUPPORT'], "array_syntax.rb")
 
-ArraySyntax.call(STDIN.read)</string>
+ArraySyntax::Toggle.new(ENV['TM_SELECTED_TEXT'] || STDIN.read) do |output|
+  output.present? ? print(output) : exit(200)
+end</string>
 	<key>input</key>
-	<string>selection</string>
+	<string>line</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
@@ -19,7 +21,7 @@ ArraySyntax.call(STDIN.read)</string>
 	<key>name</key>
 	<string>Toggle array syntax style</string>
 	<key>outputCaret</key>
-	<string>heuristic</string>
+	<string>interpolateByLine</string>
 	<key>outputFormat</key>
 	<string>text</string>
 	<key>outputLocation</key>
