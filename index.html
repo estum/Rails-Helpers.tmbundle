@@ -18,7 +18,7 @@
     <div class="wrapper">
       <header>
         <h1>Rails-helpers.tmbundle</h1>
-        <p>Groovy Ruby on Rails helpers for TextMate 2</p>
+        <p>Groovy <strong>Ruby on Rails</strong> helpers for <strong>TextMate 2</strong></p>
         <p class="view"><a href="https://github.com/estum/Rails-Helpers.tmbundle">View the Project on GitHub <small>estum/Rails-Helpers.tmbundle</small></a></p>
         <ul>
           <li><a href="https://github.com/estum/Rails-Helpers.tmbundle/zipball/master">Download <strong>ZIP File</strong></a></li>
@@ -26,59 +26,67 @@
           <li><a href="https://github.com/estum/Rails-Helpers.tmbundle">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
+
       <section>
         <h1>
-<a id="rails-helperstmbundle" class="anchor" href="#rails-helperstmbundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails-Helpers.tmbundle</h1>
+          <a id="tmbundle" class="anchor" href="#tmbundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+          <strong>Ruby on Rails</strong> Missed Commands & Snippets
+        </h1>
 
-<p>Groovy Ruby on Rails helpers for TextMate 2</p>
+        <p>Updates an old stuff from <a href="https://github.com/textmate/ruby-on-rails-tmbundle" target="_blank">the official bundle</a> and adds a couple (actually, more than a couple) magic commands & snippets, which, I assure, you'd love to.</p>
 
-<h1>
-<a id="textmate-2-installation" class="anchor" href="#textmate-2-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Textmate 2 installation</h1>
+        <h1>
+          <a id="textmate-2-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+          <strong>TextMate 2</strong> installation
+        </h1>
 
-<div class="highlight highlight-bash"><pre>mkdir -p <span class="pl-k">~</span>/Library/Application<span class="pl-cce">\ </span>Support/Avian/Bundles/
+        <div class="highlight highlight-bash">
+          <pre>mkdir -p <span class="pl-k">~</span>/Library/Application<span class="pl-cce">\ </span>Support/Avian/Bundles/
 <span class="pl-s3">cd</span> <span class="pl-k">~</span>/Library/Application<span class="pl-cce">\ </span>Support/Avian/Bundles/
-git clone https://github.com/estum/Rails-Helpers.tmbundle.git</pre></div>
+git clone https://github.com/estum/Rails-Helpers.tmbundle.git</pre>
+        </div>
 
-<h1>
-<a id="list-of-features" class="anchor" href="#list-of-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>List of features</h1>
+        <h1>
+          <a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+          Killer-features
+        </h1>
 
-<h2>
-<a id="f1-open-gem-command" class="anchor" href="#f1-open-gem-command" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<code>⇧F1</code> Open gem... command</h2>
+        <h3>
+          <a id="m-open-migration-from-dropdown-list" class="anchor" href="#m-open-migration-from-dropdown-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+          <kbd>⌘⇧M</kbd> Open migration from dropdown list
+        </h3>
+        <p><img src="http://estum.github.com/Rails-Helpers.tmbundle/images/open_migration.png" alt="Open migration from dropdown list"></p>
 
-<p>Homepage/source path.</p>
+        <h3>
+          <a id="a-toggle-array-syntax-style" class="anchor" href="#a-toggle-array-syntax-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+          <kbd>⌃⌘A</kbd> Toggle array syntax style
+        </h3>
+        <p><img src="http://estum.github.com/Rails-Helpers.tmbundle/images/toggle_array_syntax_style.png" alt="Toggle array syntax style"></p>
 
-<p><img src="http://estum.github.com/Rails-Helpers.tmbundle/images/open_gem_in.png" alt="Open gem in..."></p>
+        <h3>
+          <a id="nmod" class="anchor" href="#nmod" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+          <kbd>nmod⇥</kbd>, <kbd>ncla⇥</kbd> Namespaced module/class
+        </h3>
+        <p>The smart snippet, which creates a blank module or class with a nested namespacing by using the current file path.</p>
 
-<h2>
-<a id="m-open-migration-from-dropdown-list" class="anchor" href="#m-open-migration-from-dropdown-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<code>⌘⇧M</code> Open migration from dropdown list</h2>
+        <h3>
+          <a id="update-filename-using-classname" class="anchor" href="#update-filename-using-classname" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+          <kbd>⌥⇧⌘N</kbd> Rename current file using the current word
+        </h3>
+        <p>Put the caret on a class name, and press <kbd>⌥⇧⌘N</kbd> to rename current file with underscored value of current word.</p>
 
-<p><img src="http://estum.github.com/Rails-Helpers.tmbundle/images/open_migration.png" alt="Open migration from dropdown list"></p>
-
-<h2>
-<a id="a-toggle-array-syntax-style" class="anchor" href="#a-toggle-array-syntax-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<code>⌃⌘A</code> Toggle array syntax style</h2>
-
-<p><img src="http://estum.github.com/Rails-Helpers.tmbundle/images/toggle_array_syntax_style.png" alt="Toggle array syntax style"></p>
-
-<h2>
-<a id="-open-coffeejs-on-current-line" class="anchor" href="#-open-coffeejs-on-current-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<code>⌘⌥↑</code> Open coffee/js on current line</h2>
-
-<p><img src="http://estum.github.com/Rails-Helpers.tmbundle/images/open_coffee-js_on_current_line.png" alt="Toggle array syntax style"></p>
-
-<h2>
-<a id="other" class="anchor" href="#other" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other</h2>
-
-<p>See full list of commands and snippets in the bundle menu.</p>
+        <h3>
+          <a id="other" class="anchor" href="#other" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+          ...and more
+        </h3>
+        <p>See full list of commands and snippets in the bundle menu.</p>
       </section>
     </div>
+
     <footer>
       <p>Project maintained by <a href="https://github.com/estum">estum</a></p>
       <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
     </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
   </body>
 </html>
